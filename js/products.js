@@ -601,7 +601,7 @@ const products = [
         desc: 'Corn, Cheese',
         sizes: [
             { label: 'Small', price: 80, discount:0 },
-            { label: 'Medium', price: 100 },
+            { label: 'Medium', price: 110 },
             { label: 'Large', price: 150, discount:0 },
             { label: 'Extra Large', price: 200, discount:0 }
         ],
