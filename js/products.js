@@ -574,10 +574,10 @@ const products = [
         name: '[P01] MARGARITA PIZZA',
         desc: 'Plain Cheese',
         sizes: [
-            { label: 'Small', price: 60, discount:0 },
-            { label: 'Medium', price: 90 },
-            { label: 'Large', price: 130, discount:0 },
-            { label: 'Extra Large', price: 180, discount:0 }
+            { label: 'Small - 6 inch', price: 60, discount:0 },
+            { label: 'Medium - 7 inch', price: 90 },
+            { label: 'Large - 8 inch', price: 130, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 180, discount:0 }
         ],
         img: 'img/pizza/margaritapizza.jpg',
         category: 'Pizza'
@@ -587,10 +587,10 @@ const products = [
         name: '[P02] SIMPLY VEG PIZZA',
         desc: 'Onion, Capsicum/Tomato, Cheese',
         sizes: [
-            { label: 'Small', price: 80, discount:0 },
-            { label: 'Medium', price: 110 },
-            { label: 'Large', price: 150, discount:0 },
-            { label: 'Extra Large', price: 200, discount:0 }
+            { label: 'Small - 6 inch', price: 80, discount:0 },
+            { label: 'Medium - 7 inch', price: 110 },
+            { label: 'Large - 8 inch', price: 150, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 200, discount:0 }
         ],
         img: 'img/pizza/simplyveg.jpg',
         category: 'Pizza'
@@ -600,10 +600,10 @@ const products = [
         name: '[P03] GOLDEN CORN PIZZA',
         desc: 'Corn, Cheese',
         sizes: [
-            { label: 'Small', price: 80, discount:0 },
-            { label: 'Medium', price: 110 },
-            { label: 'Large', price: 150, discount:0 },
-            { label: 'Extra Large', price: 200, discount:0 }
+            { label: 'Small - 6 inch', price: 80, discount:0 },
+            { label: 'Medium - 7 inch', price: 110 },
+            { label: 'Large - 8 inch', price: 150, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 200, discount:0 }
         ],
         img: 'img/pizza/goldencorn.jpg',
         category: 'Pizza'
@@ -613,10 +613,10 @@ const products = [
         name: '[P04] VEGGIE DELIGHT PIZZA',
         desc: 'Onion, Tomato, Corn, Cheese',
         sizes: [
-            { label: 'Small', price: 90, discount:0 },
-            { label: 'Medium', price: 120 },
-            { label: 'Large', price: 160, discount:0 },
-            { label: 'Extra Large', price: 220, discount:0 }
+            { label: 'Small - 6 inch', price: 90, discount:0 },
+            { label: 'Medium - 7 inch', price: 120 },
+            { label: 'Large - 8 inch', price: 160, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 220, discount:0 }
         ],
         img: 'img/pizza/veggiedelight.jpg',
         category: 'Pizza'
@@ -628,10 +628,10 @@ const products = [
         name: '[P05] FARMHOUSE PIZZA',
         desc: 'Onion, Capsicum, Paneer/Mushroom, Cheese',
         sizes: [
-            { label: 'Small', price: 100, discount:0 },
-            { label: 'Medium', price: 140 },
-            { label: 'Large', price: 190, discount:0 },
-            { label: 'Extra Large', price: 250, discount:0 }
+            { label: 'Small - 6 inch', price: 100, discount:0 },
+            { label: 'Medium - 7 inch', price: 140 },
+            { label: 'Large - 8 inch', price: 190, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 250, discount:0 }
         ],
         img: 'img/pizza/farmhousepizza.jpg',
         category: 'Pizza'
@@ -641,10 +641,10 @@ const products = [
         name: '[P06] EVERYTHING ON IT PIZZA',
         desc: 'Onion, Capsicum, Corn, Paneer, Mushroom, Olive, Cheese',
         sizes: [
-            { label: 'Small', price: 120, discount:0 },
-            { label: 'Medium', price: 160 },
-            { label: 'Large', price: 220, discount:0 },
-            { label: 'Extra Large', price: 280, discount:0 }
+            { label: 'Small - 6 inch', price: 120, discount:0 },
+            { label: 'Medium - 7 inch', price: 160 },
+            { label: 'Large - 8 inch', price: 220, discount:0 },
+            { label: 'Extra Large - 9 inch', price: 280, discount:0 }
         ],
         img: 'img/pizza/everythingonit.jpg',
         category: 'Pizza'
@@ -680,7 +680,7 @@ const products = [
       {
         name: '[S02] VEG GRILLED SANDWICH',
         desc: '',
-        price: 30,
+        price: 25,
         img: 'img/sandwich/grilledsandwich.jpg',
         category: 'Sandwich'
       },
