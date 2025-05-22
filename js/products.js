@@ -134,7 +134,7 @@ const products = [
 
 
       {
-        name: '[C12] @ Tier Cake',
+        name: '[C12] 2 Tier Cake',
         desc: '',
         sizes: [
           { label: '3 pounds', price: 750 },
