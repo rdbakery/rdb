@@ -39,8 +39,8 @@ header h1 {
 }
 
 #search {
-  padding: 0.6rem 1rem;
-  width: 250px;
+  padding: 0.2rem .5rem;
+  width: 100px;
   font-size: 1rem;
   border: 2px solid #f7a072;
   border-radius: 8px;
@@ -59,7 +59,7 @@ header h1 {
   right: 1rem;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
-  background: #fff3e6;
+  background: #c4e832;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -214,11 +214,17 @@ header h1 {
   margin: 0.3rem 0 1rem;
 }
 
-.location a {
-  color: #d7cf64;
-  text-decoration: none;
-  font-weight: 500;
+.location a strong {
+  font-size: .8rem;
+  font-weight: 700;
+  color: #b41c1c;
+  background-color: #16e816; /* bright green */
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
 }
+
+
 
 .location a:hover {
   text-decoration: underline;
@@ -375,13 +381,13 @@ header h1 {
 
 
 .highlight-contact {
-  font-size: 1.1rem;
+  font-size: .8rem;
   font-weight: 500;
   color: #5c3d2e;
   background: #fff4e6;
   border-left: 5px solid #f7a072;
-  padding: 0.7rem 1rem;
-  margin: 0.5rem auto;
+  padding: 0.2rem 1rem;
+  margin: 0.2rem auto;
   width: fit-content;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
