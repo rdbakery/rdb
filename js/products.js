@@ -134,7 +134,7 @@ const products = [
 
 
       {
-        name: '[C12] Chocolate Cake',
+        name: '[C12] 2 Tier Cake',
         desc: '',
         sizes: [
           { label: '3 pounds', price: 750 },
@@ -600,10 +600,10 @@ const products = [
         name: '[P03] GOLDEN CORN PIZZA',
         desc: 'Corn, Cheese',
         sizes: [
-            { label: 'Small', price: 60, discount:0 },
-            { label: 'Medium', price: 90 },
-            { label: 'Large', price: 130, discount:0 },
-            { label: 'Extra Large', price: 180, discount:0 }
+            { label: 'Small', price: 80, discount:0 },
+            { label: 'Medium', price: 100 },
+            { label: 'Large', price: 150, discount:0 },
+            { label: 'Extra Large', price: 200, discount:0 }
         ],
         img: 'img/pizza/goldencorn.jpg',
         category: 'Pizza'
