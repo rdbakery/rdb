@@ -579,7 +579,7 @@ const products = [
             { label: 'Large - 8 inch', price: 130, discount:0 },
             { label: 'Extra Large - 9 inch', price: 180, discount:0 }
         ],
-        img: 'img/pizza/margaritapizza.jpg',
+        img: 'img/pizza/P01.jpg',
         category: 'Pizza'
       },
 
@@ -592,7 +592,7 @@ const products = [
             { label: 'Large - 8 inch', price: 150, discount:0 },
             { label: 'Extra Large - 9 inch', price: 200, discount:0 }
         ],
-        img: 'img/pizza/simplyveg.jpg',
+        img: 'img/pizza/P02.jpg',
         category: 'Pizza'
       },
 
@@ -605,7 +605,7 @@ const products = [
             { label: 'Large - 8 inch', price: 150, discount:0 },
             { label: 'Extra Large - 9 inch', price: 200, discount:0 }
         ],
-        img: 'img/pizza/goldencorn.jpg',
+        img: 'img/pizza/P03.jpg',
         category: 'Pizza'
       },
 
@@ -618,7 +618,7 @@ const products = [
             { label: 'Large - 8 inch', price: 160, discount:0 },
             { label: 'Extra Large - 9 inch', price: 220, discount:0 }
         ],
-        img: 'img/pizza/veggiedelight.jpg',
+        img: 'img/pizza/P04.jpg',
         category: 'Pizza'
       },
 
@@ -633,7 +633,7 @@ const products = [
             { label: 'Large - 8 inch', price: 190, discount:0 },
             { label: 'Extra Large - 9 inch', price: 250, discount:0 }
         ],
-        img: 'img/pizza/farmhousepizza.jpg',
+        img: 'img/pizza/P05.jpg',
         category: 'Pizza'
       },
 
@@ -646,7 +646,7 @@ const products = [
             { label: 'Large - 8 inch', price: 220, discount:0 },
             { label: 'Extra Large - 9 inch', price: 280, discount:0 }
         ],
-        img: 'img/pizza/everythingonit.jpg',
+        img: 'img/pizza/P06.jpg',
         category: 'Pizza'
       },
 
@@ -656,7 +656,7 @@ const products = [
         name: '[B01] SIMPLE VEG BURGER',
         desc: '',
         price: 20,
-        img: 'img/burger/vegburger.jpg',
+        img: 'img/burger/B01.jpg',
         category: 'Burger'
       },
 
@@ -664,7 +664,7 @@ const products = [
         name: '[B02] CHEESE PANEER BURGER',
         desc: '',
         price: 30,
-        img: 'img/burger/cheeseburger.jpg',
+        img: 'img/burger/B02.jpg',
         category: 'Burger'
       },
 
@@ -673,7 +673,7 @@ const products = [
         name: '[S01] VEG SANDWICH',
         desc: '',
         price: 20,
-        img: 'img/sandwich/sandwich.jpg',
+        img: 'img/sandwich/S01.jpg',
         category: 'Sandwich'
       },
 
@@ -681,7 +681,7 @@ const products = [
         name: '[S02] VEG GRILLED SANDWICH',
         desc: '',
         price: 25,
-        img: 'img/sandwich/grilledsandwich.jpg',
+        img: 'img/sandwich/S02.jpg',
         category: 'Sandwich'
       },
 
@@ -693,7 +693,7 @@ const products = [
           { label: '750 ml', price: 40, discount:0 },
           { label: '2000 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/cocacola.jpg',
+        img: 'img/beverage/D01.jpg',
         category: 'Beverage'
       },
 
@@ -701,7 +701,7 @@ const products = [
         name: '[D02] Coco Cola Can',
         desc: '300 ml',
         price: 40,
-        img: 'img/beverage/cocacolacan.jpg',
+        img: 'img/beverage/D02.jpg',
         category: 'Beverage'
       },
 
@@ -714,7 +714,7 @@ const products = [
           { label: '1000 ml', price: 50 },
           { label: '2000 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/sprite.jpg',
+        img: 'img/beverage/D03.jpg',
         category: 'Beverage'
       },
 
@@ -722,7 +722,7 @@ const products = [
         name: '[D04] Sprite Can',
         desc: '300 ml',
         price: 40,
-        img: 'img/beverage/spritecan.jpg',
+        img: 'img/beverage/D04.jpg',
         category: 'Beverage'
       },
 
@@ -734,7 +734,7 @@ const products = [
           { label: '750 ml', price: 40, discount:0 },
           { label: '2250 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/pepsi.jpg',
+        img: 'img/beverage/D05.jpg',
         category: 'Beverage'
       },
 
@@ -747,7 +747,7 @@ const products = [
           { label: '1000 ml', price: 50, discount:0 },
           { label: '2000 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/thumsup.jpg',
+        img: 'img/beverage/D06.jpg',
         category: 'Beverage'
       },
 
@@ -760,7 +760,7 @@ const products = [
           { label: '750 ml', price: 40, discount:0 },
           { label: '2250 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/dev.jpg',
+        img: 'img/beverage/D07.jpg',
         category: 'Beverage'
       },
       {
@@ -771,7 +771,7 @@ const products = [
           { label: '1000 ml', price: 60, discount:0 },
           { label: '1750 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/mazza.jpg',
+        img: 'img/beverage/D08.jpg',
         category: 'Beverage'
       },
 
@@ -783,7 +783,7 @@ const products = [
           { label: '1250 ml', price: 75, discount:0 },
           //{ label: '1750 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/frooti.jpg',
+        img: 'img/beverage/D09.jpg',
         category: 'Beverage'
       },
 
@@ -795,7 +795,7 @@ const products = [
           { label: '1250 ml', price: 75, discount:0 },
           { label: '1750 ml', price: 99, discount:0 }
       ],
-        img: 'img/beverage/mazza.jpg',
+        img: 'img/beverage/D10.jpg',
         category: 'Beverage'
       },
 
@@ -803,14 +803,14 @@ const products = [
         name: '[D11] Mazza',
         desc: '',
         price: 10,
-        img: 'img/beverage/mazza10.jpg',
+        img: 'img/beverage/D11.jpg',
         category: 'Beverage'
       },
       {
         name: '[D12] Frooti',
         desc: '',
         price: 10,
-        img: 'img/beverage/frooti10.jpg',
+        img: 'img/beverage/D12.jpg',
         category: 'Beverage'
       },
 
@@ -818,7 +818,7 @@ const products = [
         name: '[D13] Red Bull',
         desc: '250 ml',
         price: 125,
-        img: 'img/beverage/redbull.jpg',
+        img: 'img/beverage/D13.jpg',
         category: 'Beverage'
       },
 
@@ -826,7 +826,7 @@ const products = [
         name: '[D14] Britannia Cow Milk',
         desc: '180 ml Vanilla',
         price: 40,
-        img: 'img/beverage/vanilla.jpg',
+        img: 'img/beverage/D14.jpg',
         category: 'Beverage'
       },
 
@@ -834,7 +834,7 @@ const products = [
         name: '[D15] Britannia Cow Milk',
         desc: '180 ml Choclate',
         price: 40,
-        img: 'img/beverage/chocolate.jpg',
+        img: 'img/beverage/D15.jpg',
         category: 'Beverage'
       },
 
@@ -842,7 +842,7 @@ const products = [
         name: '[D16] Britannia Cow Milk',
         desc: '180 ml Strawberry',
         price: 40,
-        img: 'img/beverage/strawberry.jpg',
+        img: 'img/beverage/D16.jpg',
         category: 'Beverage'
       },
 
@@ -850,7 +850,15 @@ const products = [
         name: '[D17] Britannia Lassi',
         desc: '180 ml',
         price: 20,
-        img: 'img/beverage/lassi.jpg',
+        img: 'img/beverage/D17.jpg',
+        category: 'Beverage'
+      },
+
+      {
+        name: '[D17] Sting',
+        desc: '250 ml',
+        price: 20,
+        img: 'img/beverage/D18.jpg',
         category: 'Beverage'
       },
 
