@@ -13,14 +13,11 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-bottom: 4px solid #f7a072;
   position: relative;
-}
-header {
   background-image: url('../img/bgbanner.jpg'); /* 🖼️ Replace with actual path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 header h1 {
   font-size: 2.2rem;
@@ -64,7 +61,7 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   user-select: none;
-  z-index: 1000; /* Make sure it stays above other content */
+  z-index: 1000;
 }
 
 #cart-count {
@@ -76,18 +73,51 @@ header h1 {
   vertical-align: middle;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: flex-start;
+}
+
+.category-menu {
+  flex-direction: column;
+  width: 200px;
+  background: #fff4e6;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #f7a072;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.category-menu button {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+}
+
+.category-menu button.active {
+  background-color: #007bff;
+  color: white;
+}
+
 #product-list {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1rem;
-  padding: 1rem;
 }
-
-.product em {
-  font-size: 0.9rem;
-  color: #6b4f3b;
-}
-
 
 .product {
   background: #fff;
@@ -147,6 +177,11 @@ header h1 {
   background-color: #036724;
 }
 
+.product em {
+  font-size: 0.9rem;
+  color: #6b4f3b;
+}
+
 #cart {
   padding: 1rem;
   background: #fffaec;
@@ -154,7 +189,7 @@ header h1 {
   border-radius: 10px;
   max-width: 400px;
   margin: 1rem auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #cart h2 {
@@ -218,13 +253,11 @@ header h1 {
   font-size: .8rem;
   font-weight: 700;
   color: #b41c1c;
-  background-color: #cfd8a8; /* bright green */
+  background-color: #cfd8a8;
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
   display: inline-block;
 }
-
-
 
 .location a:hover {
   text-decoration: underline;
@@ -246,67 +279,6 @@ header h1 {
   color: white;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  header {
-    padding: 1rem 0.5rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  header h1,
-  .contact,
-  .location,
-  #search {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #search {
-    width: 90%;
-    max-width: 300px;
-  }
-
-
-  header h1 {
-    font-size: 1.6rem;
-    margin: 0.2rem 0;
-  }
-
-  .contact {
-    font-size: 0.95rem;
-    margin: 0.2rem 0 0.5rem;
-  }
-
-  .location {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-
-.category-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.category-menu button {
-  padding: 10px 15px;
-  border: none;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
-}
-
-.category-menu button.active {
-  background-color: #007bff;
-  color: white;
-}
-
-
 #bakery-name {
   font-size: 1.2rem;
   font-weight: 600;
@@ -325,11 +297,9 @@ header h1 {
 
 .original-price {
   text-decoration: line-through;
-  color: #888; /* Light gray color for the original price */
+  color: #888;
 }
 
-
-/* Positioning the discount wedge on the image */
 .product-image-wrapper {
   position: relative;
   display: inline-block;
@@ -364,21 +334,11 @@ header h1 {
   max-width: 90%;
 }
 
-/* Center it using a flex wrapper */
 .header-wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* Responsive scaling on small screens */
-@media (max-width: 600px) {
-  .fancy-heading {
-    font-size: 1.6rem;
-    padding: 0.6rem 1rem;
-  }
-}
-
 
 .highlight-contact {
   font-size: .8rem;
@@ -393,7 +353,6 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: inline-block;
 }
-
 
 .fssai-badge {
   margin: 0.5rem auto 1rem;
@@ -416,3 +375,68 @@ header h1 {
   transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .category-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #f7a072;
+    position: relative;
+    top: 0;
+    padding: 0.5rem;
+    justify-content: center;
+    background: #fff4e6;
+  }
+
+  .category-menu button {
+    margin: 5px;
+    width: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 1rem 0.5rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header h1,
+  .contact,
+  .location,
+  #search {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #search {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    margin: 0.2rem 0;
+  }
+
+  .contact {
+    font-size: 0.95rem;
+    margin: 0.2rem 0 0.5rem;
+  }
+
+  .location {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fancy-heading {
+    font-size: 1.6rem;
+    padding: 0.6rem 1rem;
+  }
+}
