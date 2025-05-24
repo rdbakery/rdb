@@ -313,11 +313,11 @@ function getRandomImage(folder, prefix, count) {
 
 // Define categories with random images
 const images = [
-  getRandomImage('cake', 'C', 46),
+  getRandomImage('cake', 'C', 40),
   getRandomImage('pizza', 'P', 6),
   getRandomImage('burger', 'B', 2),
   getRandomImage('sandwich', 'S', 2),
-  getRandomImage('beverage', 'D', 18)
+  getRandomImage('beverage', 'D', 9)
 ];
 
 let index = 0;
@@ -332,4 +332,4 @@ function rotateBackground() {
 
 // Start background rotation
 rotateBackground();
-setInterval(rotateBackground, 5000);
+setInterval(rotateBackground, 3000);
