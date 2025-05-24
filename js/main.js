@@ -302,3 +302,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const observer = new MutationObserver(updateCartVisibility);
   observer.observe(cartCount, { childList: true });
 });
+
+// Header background rotation
+const header = document.querySelector('header');
+
+function getRandomImage(folder, prefix, count) {
+  const num = String(Math.floor(Math.random() * count) + 1).padStart(2, '0');
+  return `img/${folder}/${prefix}${num}.jpg`;
+}
+
+// Define categories with random images
+const images = [
+  getRandomImage('cake', 'C', 46),
+  getRandomImage('pizza', 'P', 6),
+  getRandomImage('burger', 'B', 2),
+  getRandomImage('sandwich', 'S', 2),
+  getRandomImage('beverage', 'D', 18)
+];
+
+let index = 0;
+
+function rotateBackground() {
+  header.style.backgroundImage = `url('${images[index]}')`;
+  header.style.backgroundSize = 'cover';
+  header.style.backgroundPosition = 'center';
+  header.style.transition = 'background-image 1s ease-in-out';
+  index = (index + 1) % images.length;
+}
+
+// Start background rotation
+rotateBackground();
+setInterval(rotateBackground, 5000);
