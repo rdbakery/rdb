@@ -1,16 +1,23 @@
-let bulkDiscountRate = 5;
-const BULK_DISCOUNT_THRESHOLD = 2;
-// Define eligible products and sizes for bulk discount here
-// const BULK_DISCOUNT_PRODUCTS = {
-//   '[C01] Doll Cake': ['2 pounds', '3 pounds'],
-//   // Add more products and sizes as needed, for example:
-//   // 'Another Product': ['Size1', 'Size2']
-// };
+let bulkDiscountRate = 0;
+const BULK_DISCOUNT_THRESHOLD = 0;
+
 
 const BULK_DISCOUNT_PRODUCTS = {
-  '[C01] Doll Cake': ['2 pounds', '3 pounds'],
-  '[C02] Doll Cake': ['3 pounds'],
-  'Sample Product': ['Size A', 'Size B']
+  '[C01] Doll Cake': {
+    eligibleSizes: ['2 pounds', '3 pounds'],
+    discountRate: 10,
+    threshold: 2
+  },
+  '[C02] Doll Cake': {
+    eligibleSizes: ['3 pounds'],
+    discountRate: 12,
+    threshold: 2
+  },
+  '[P06] EVERYTHING ON IT PIZZA': {
+    eligibleSizes: ['Extra Large - 9 inch'],
+    discountRate: 10,
+    threshold: 2
+  }
 };
 
 const products = [
@@ -659,7 +666,7 @@ const products = [
             { label: 'Small - 6 inch', price: 120, discount:0 },
             { label: 'Medium - 7 inch', price: 160 },
             { label: 'Large - 8 inch', price: 220, discount:0 },
-            { label: 'Extra Large - 9 inch', price: 280, discount:0 }
+            { label: 'Extra Large - 9 inch', price: 280, discount:30 }
         ],
         img: 'img/pizza/P06.jpg',
         category: 'Pizza'

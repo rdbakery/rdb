@@ -192,12 +192,17 @@ function changeQty(key, delta) {
 }
 
 function isBulkDiscountApplicable(item) {
-  const eligibleSizes = BULK_DISCOUNT_PRODUCTS[item.name];
-  if (!eligibleSizes) return false;
-  if (!item.size) return false;
-  if (!eligibleSizes.includes(item.size)) return false;
-  return item.quantity >= BULK_DISCOUNT_THRESHOLD;
+  const config = BULK_DISCOUNT_PRODUCTS[item.name];
+  if (!config) return false;
+  if (!item.size || !config.eligibleSizes.includes(item.size)) return false;
+  return item.quantity >= config.threshold;
 }
+
+function getBulkDiscountRate(item) {
+  const config = BULK_DISCOUNT_PRODUCTS[item.name];
+  return config ? config.discountRate : 0;
+}
+
 
 function updateBulkNote(productName) {
   const product = products.find(p => p.name === productName);
@@ -207,7 +212,11 @@ function updateBulkNote(productName) {
   const container = document.getElementById(`bulk-note-${productName}`);
 
   if (cart[key] && isBulkDiscountApplicable(cart[key])) {
-    container.innerHTML = `<div class="bulk-discount-note">Bulk Discount Applied (${bulkDiscountRate}% off)</div>`;
+    const item = cart[key];
+    if (item && isBulkDiscountApplicable(item)) {
+      const rate = getBulkDiscountRate(item);
+      container.innerHTML = `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off)</div>`;
+    }
   } else {
     container.innerHTML = '';
   }
@@ -220,46 +229,67 @@ function updateCart() {
   cartItems.innerHTML = '';
   let cartCountValue = 0;
   let total = 0;
+  let totalDiscount = 0; // To track overall discount including bulk
+
   let message = 'Order details:\n';
 
   Object.keys(cart).forEach((key, i) => {
     const item = cart[key];
     cartCountValue += item.quantity;
 
-    const basePrice = item.price - item.discount;
-    let itemTotal = basePrice * item.quantity;
+    const originalPrice = item.price;
+    const discountedPricePerUnit = item.price - item.discount;
+    let itemTotal = discountedPricePerUnit * item.quantity;
+
     let bulkDiscountAmount = 0;
 
     if (isBulkDiscountApplicable(item)) {
-      bulkDiscountAmount = (itemTotal * bulkDiscountRate) / 100;
+      const itemRate = getBulkDiscountRate(item);
+      bulkDiscountAmount = (itemTotal * itemRate) / 100;
       itemTotal -= bulkDiscountAmount;
     }
 
     total += itemTotal;
 
+    // Calculate total discount for this item (discount + bulk discount)
+    const itemDiscountTotal = (originalPrice - discountedPricePerUnit) * item.quantity + bulkDiscountAmount;
+    totalDiscount += itemDiscountTotal;
+
     cartItems.innerHTML += `
       <li>
         ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}
-        ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount Applied (${bulkDiscountRate}% off)</div>` : ''}
+        ${item.discount > 0 ? `<br><small>Unit Price: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>` : ''}
+        ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount Applied (${getBulkDiscountRate(item)}% off)</div>` : ''}
         <br>
         <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
         <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
       </li>
     `;
 
-    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}${isBulkDiscountApplicable(item) ? ` (incl. ${bulkDiscountRate}% bulk discount)` : ''}\n`;
+    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}`;
+    if (item.discount > 0) {
+      message += ` (Unit Price: ₹${originalPrice} → ₹${discountedPricePerUnit})`;
+    }
+    if (isBulkDiscountApplicable(item)) {
+      message += ` (Includes ${getBulkDiscountRate(item)}% bulk discount)`;
+    }    
+    message += `\n`;
   });
 
   cartCount.textContent = cartCountValue;
 
   if (cartCountValue > 0) {
+    message += `Total: ₹${total.toFixed(2)}\n`;
+    if (totalDiscount > 0) {
+      message += `You saved: ₹${totalDiscount.toFixed(2)} on this order! 🎉\n`;
+    }
     cartItems.innerHTML += `<li><strong>Total: ₹${total.toFixed(2)}</strong></li>`;
-    message += `Total: ₹${total.toFixed(2)}`;
     whatsappLink.href = `https://wa.me/+919760648714?text=${encodeURIComponent(message)}`;
   } else {
     whatsappLink.href = `https://wa.me/+919760648714`;
   }
 }
+
 
 clearCartBtn.addEventListener('click', () => {
   cart = {};
