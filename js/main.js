@@ -266,7 +266,7 @@ function updateCart() {
       </li>
     `;
 
-    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}`;
+    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - *₹${itemTotal.toFixed(2)}*`;
     if (item.discount > 0) {
       message += ` (Unit Price: ₹${originalPrice} → ₹${discountedPricePerUnit})`;
     }
@@ -279,7 +279,7 @@ function updateCart() {
   cartCount.textContent = cartCountValue;
 
   if (cartCountValue > 0) {
-    message += `Total: ₹${total.toFixed(2)}\n`;
+    message += `*Total: ₹${total.toFixed(2)}*\n`;
     if (totalDiscount > 0) {
       message += `You saved: ₹${totalDiscount.toFixed(2)} on this order! 🎉\n`;
     }
