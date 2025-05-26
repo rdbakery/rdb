@@ -1,3 +1,19 @@
+let bulkDiscountRate = 5;
+const BULK_DISCOUNT_THRESHOLD = 2;
+// Define eligible products and sizes for bulk discount here
+// const BULK_DISCOUNT_PRODUCTS = {
+//   '[C01] Doll Cake': ['2 pounds', '3 pounds'],
+//   // Add more products and sizes as needed, for example:
+//   // 'Another Product': ['Size1', 'Size2']
+// };
+
+const BULK_DISCOUNT_PRODUCTS = {
+  '[C01] Doll Cake': ['2 pounds', '3 pounds'], // threshold 3, 10% discount
+  '[C02] Doll Cake': ['1 pound', '1.5 pounds'],
+  'Sample Product': ['Size A', 'Size B']
+};
+
+
 const products = [
     {
       name: '[C01] Doll Cake',

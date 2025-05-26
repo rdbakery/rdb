@@ -449,3 +449,21 @@ header {
   transition: background-image 1s ease-in-out;
   color: #fff; /* Improve text visibility */
 }
+
+.bulk-discount-note {
+  color: green;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+
+.bulk-discount-note {
+  color: green;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+.bulk-discount-note-container {
+  margin-top: 4px;
+}
