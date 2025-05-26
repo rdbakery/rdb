@@ -1,3 +1,5 @@
+
+
 const productList = document.getElementById('product-list');
 const cartItems = document.getElementById('cart-items');
 const cartCount = document.getElementById('cart-count');
@@ -9,9 +11,10 @@ const searchInput = document.getElementById('search');
 const bakeryName = document.getElementById('bakery-name');
 
 let selectedCategory = '';
-let cart = {}; // key: productName|sizeLabel, value: { name, size, price, quantity }
+let cart = {}; // key: productName|sizeLabel, value: { name, size, price, discount, quantity }
 
-// Render all products
+// ... your initial variable declarations remain the same
+
 function renderProducts(filter = '', category = '') {
   productList.innerHTML = '';
 
@@ -28,7 +31,7 @@ function renderProducts(filter = '', category = '') {
       let selectedSize = '';
       let price = p.price;
       let discountPrice = null;
-      let discountBadge = ''; // To hold the discount badge HTML
+      let discountBadge = '';
 
       if (p.sizes) {
         const firstSize = p.sizes[0];
@@ -36,15 +39,13 @@ function renderProducts(filter = '', category = '') {
         price = firstSize.price;
         if (firstSize.discount) {
           discountPrice = price - firstSize.discount;
-          discountBadge = `<div class="discount-badge">Save ₹${firstSize.discount}</div>`; // Discount badge for the first size
+          discountBadge = `<div class="image-discount-badge"><div class="discount-badge">Save ₹${firstSize.discount}</div></div>`;
         }
 
         sizeOptionsHTML = `
           <select class="size-select" data-product="${p.name}">
             ${p.sizes.map(s => {
-              const discount = s.discount
-                ? ` data-discount="${s.discount}"`
-                : '';
+              const discount = s.discount ? ` data-discount="${s.discount}"` : '';
               return `<option value="${s.label}" data-price="${s.price}"${discount}>${s.label}</option>`;
             }).join('')}
           </select>
@@ -54,41 +55,32 @@ function renderProducts(filter = '', category = '') {
       const key = selectedSize ? `${p.name}|${selectedSize}` : p.name;
       const itemInCart = cart[key];
 
-      let actionButtonsHTML = '';
-      if (itemInCart) {
-        actionButtonsHTML = `
-          <div class="qty-controls">
+      let actionButtonsHTML = itemInCart
+        ? `<div class="qty-controls">
             <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
             <span>${itemInCart.quantity}</span>
             <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
-          </div>
-        `;
-      } else {
-        actionButtonsHTML = `<button onclick='addToCart("${p.name}")'>Add to Cart</button>`;
-      }
-
-      // Add discount badge for the image if discount exists
-      const discountImageBadge = discountPrice ? `<div class="discount-badge">${discountBadge}</div>` : '';
+          </div>`
+        : `<button onclick='addToCart("${p.name}")'>Add to Cart</button>`;
 
       div.innerHTML = `
         <div class="product-image-wrapper">
           <img src="${p.img}" alt="${p.name}" />
-          ${discountImageBadge} <!-- Discount Badge on Image -->
+          ${discountBadge}
         </div>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         ${sizeOptionsHTML}
         ${discountPrice !== null
           ? `<strong id="price-${p.name}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong><br>`
-          : `<strong id="price-${p.name}">₹${price}</strong><br>`
-        }
+          : `<strong id="price-${p.name}">₹${price}</strong><br>`}
         <div id="action-${p.name}">${actionButtonsHTML}</div>
+        <div id="bulk-note-${p.name}" class="bulk-discount-note-container"></div>
       `;
 
       productList.appendChild(div);
     });
 
-  // Attach size change listener
   document.querySelectorAll('.size-select').forEach(select => {
     select.addEventListener('change', function () {
       updatePrice(this);
@@ -96,24 +88,26 @@ function renderProducts(filter = '', category = '') {
       const selectedSize = this.value;
       const key = `${name}|${selectedSize}`;
       const itemInCart = cart[key];
-
       const actionDiv = document.getElementById(`action-${name}`);
+
       if (itemInCart) {
         actionDiv.innerHTML = `
           <div class="qty-controls">
             <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
             <span>${itemInCart.quantity}</span>
             <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
-          </div>
-        `;
+          </div>`;
       } else {
         actionDiv.innerHTML = `<button onclick='addToCart("${name}")'>Add to Cart</button>`;
       }
+
+      updateBulkNote(name); // Update bulk discount message when size changes
     });
+
+    updatePrice(select);
   });
 }
 
-// Update price display
 function updatePrice(select) {
   const price = parseInt(select.options[select.selectedIndex].dataset.price);
   const discount = parseInt(select.options[select.selectedIndex].dataset.discount || 0);
@@ -127,21 +121,16 @@ function updatePrice(select) {
     document.getElementById(`price-${name}`).innerText = `₹${price}`;
   }
 
-  // Update the discount badge when size is changed
-  const discountBadge = select.selectedOptions[0].dataset.discount
-    ? `<div class="discount-badge">Save ₹${select.selectedOptions[0].dataset.discount}</div>`
-    : '';
   const imageWrapper = select.closest('.product').querySelector('.product-image-wrapper');
-  const existingBadge = imageWrapper.querySelector('.discount-badge');
-  if (existingBadge) {
-    existingBadge.remove();
-  }
-  if (discountBadge) {
-    imageWrapper.insertAdjacentHTML('beforeend', discountBadge);
+  const existingBadge = imageWrapper.querySelector('.image-discount-badge');
+  if (existingBadge) existingBadge.remove();
+
+  if (discount > 0) {
+    const badgeHTML = `<div class="image-discount-badge"><div class="discount-badge">Save ₹${discount}</div></div>`;
+    imageWrapper.insertAdjacentHTML('beforeend', badgeHTML);
   }
 }
 
-// Add item to cart
 function addToCart(name) {
   const product = products.find(p => p.name === name);
   let size = '';
@@ -165,24 +154,24 @@ function addToCart(name) {
 
   updateCart();
 
-  // Manually update only this product’s action buttons
   const actionDiv = document.getElementById(`action-${name}`);
   actionDiv.innerHTML = `
     <div class="qty-controls">
       <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
       <span>${cart[key].quantity}</span>
       <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
-    </div>
-  `;
+    </div>`;
+
+  updateBulkNote(name);
 }
 
-// Change item quantity
 function changeQty(key, delta) {
   if (cart[key]) {
     cart[key].quantity += delta;
     if (cart[key].quantity <= 0) {
       delete cart[key];
     }
+
     updateCart();
 
     const [name, size] = key.split('|');
@@ -195,13 +184,38 @@ function changeQty(key, delta) {
           <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
           <span>${cart[key].quantity}</span>
           <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
-        </div>
-      `;
+        </div>`;
     }
+
+    updateBulkNote(name);
   }
 }
 
-// Update cart UI
+function isBulkDiscountApplicable(item) {
+  const eligibleSizes = BULK_DISCOUNT_PRODUCTS[item.name];
+  if (!eligibleSizes) return false;
+  if (!item.size) return false;
+  if (!eligibleSizes.includes(item.size)) return false;
+  return item.quantity >= BULK_DISCOUNT_THRESHOLD;
+}
+
+function updateBulkNote(productName) {
+  const product = products.find(p => p.name === productName);
+  const select = document.querySelector(`select[data-product="${productName}"]`);
+  const size = select ? select.value : '';
+  const key = size ? `${productName}|${size}` : productName;
+  const container = document.getElementById(`bulk-note-${productName}`);
+
+  if (cart[key] && isBulkDiscountApplicable(cart[key])) {
+    container.innerHTML = `<div class="bulk-discount-note">Bulk Discount Applied (${bulkDiscountRate}% off)</div>`;
+  } else {
+    container.innerHTML = '';
+  }
+}
+
+// ... rest of your existing updateCart(), event listeners, image rotation, etc. remain unchanged
+
+
 function updateCart() {
   cartItems.innerHTML = '';
   let cartCountValue = 0;
@@ -211,40 +225,46 @@ function updateCart() {
   Object.keys(cart).forEach((key, i) => {
     const item = cart[key];
     cartCountValue += item.quantity;
-    const itemTotal = item.price * item.quantity - item.discount * item.quantity;
+
+    const basePrice = item.price - item.discount;
+    let itemTotal = basePrice * item.quantity;
+    let bulkDiscountAmount = 0;
+
+    if (isBulkDiscountApplicable(item)) {
+      bulkDiscountAmount = (itemTotal * bulkDiscountRate) / 100;
+      itemTotal -= bulkDiscountAmount;
+    }
+
     total += itemTotal;
 
     cartItems.innerHTML += `
       <li>
-        ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal}
+        ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}
+        ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount Applied (${bulkDiscountRate}% off)</div>` : ''}
         <br>
         <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
         <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
       </li>
     `;
 
-    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal}\n`;
+    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}${isBulkDiscountApplicable(item) ? ` (incl. ${bulkDiscountRate}% bulk discount)` : ''}\n`;
   });
 
   cartCount.textContent = cartCountValue;
 
   if (cartCountValue > 0) {
-    cartItems.innerHTML += `<li><strong>Total: ₹${total}</strong></li>`;
-    message += `Total: ₹${total}`;
+    cartItems.innerHTML += `<li><strong>Total: ₹${total.toFixed(2)}</strong></li>`;
+    message += `Total: ₹${total.toFixed(2)}`;
     whatsappLink.href = `https://wa.me/+919760648714?text=${encodeURIComponent(message)}`;
   } else {
     whatsappLink.href = `https://wa.me/+919760648714`;
   }
-
-  // 🚫 Do NOT call renderProducts() here — size selection stays intact
 }
 
-// Init event listeners
 clearCartBtn.addEventListener('click', () => {
   cart = {};
   updateCart();
 
-  // Re-render action buttons for all visible products
   document.querySelectorAll('.product').forEach(productEl => {
     const name = productEl.querySelector('h3').innerText;
     const select = productEl.querySelector('select');
@@ -286,24 +306,18 @@ window.addEventListener('scroll', () => {
 renderProducts();
 updateCart();
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  const cartIcon = document.getElementById("cart-icon");
-  const cartCount = document.getElementById("cart-count");
-
   function updateCartVisibility() {
     const count = parseInt(cartCount.textContent, 10);
     cartIcon.style.display = count > 0 ? "inline-block" : "none";
   }
 
   updateCartVisibility();
-
-  // Optional: If you update the cart count dynamically elsewhere
   const observer = new MutationObserver(updateCartVisibility);
   observer.observe(cartCount, { childList: true });
 });
 
-// Header background rotation
+// Background Image Rotation
 const header = document.querySelector('header');
 
 function getRandomImage(folder, prefix, count) {
@@ -311,7 +325,6 @@ function getRandomImage(folder, prefix, count) {
   return `img/${folder}/${prefix}${num}.jpg`;
 }
 
-// Define categories with random images
 const images = [
   getRandomImage('cake', 'C', 40),
   getRandomImage('pizza', 'P', 6),
@@ -330,6 +343,5 @@ function rotateBackground() {
   index = (index + 1) % images.length;
 }
 
-// Start background rotation
 rotateBackground();
 setInterval(rotateBackground, 3000);
