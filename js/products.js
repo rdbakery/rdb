@@ -672,7 +672,7 @@ const products = [
             { label: 'Small - 6 inch', price: 120, discount:0 },
             { label: 'Medium - 7 inch', price: 160 },
             { label: 'Large - 8 inch', price: 220, discount:0 },
-            { label: 'Extra Large - 9 inch', price: 280, discount:30 }
+            { label: 'Extra Large - 9 inch', price: 280, discount:0 }
         ],
         img: 'img/pizza/P06.jpg',
         category: 'Pizza'
