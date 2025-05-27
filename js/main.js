@@ -227,11 +227,13 @@ function updateBulkNote(productName) {
 // ... rest of your existing updateCart(), event listeners, image rotation, etc. remain unchanged
 
 
+// ✅ Updated part: added product images in cart display
+
 function updateCart() {
   cartItems.innerHTML = '';
   let cartCountValue = 0;
   let total = 0;
-  let totalDiscount = 0; // To track overall discount including bulk
+  let totalDiscount = 0;
 
   let message = 'Order details:\n';
 
@@ -244,7 +246,6 @@ function updateCart() {
     let itemTotal = discountedPricePerUnit * item.quantity;
 
     let bulkDiscountAmount = 0;
-
     if (isBulkDiscountApplicable(item)) {
       const itemRate = getBulkDiscountRate(item);
       bulkDiscountAmount = (itemTotal * itemRate) / 100;
@@ -252,19 +253,25 @@ function updateCart() {
     }
 
     total += itemTotal;
-
-    // Calculate total discount for this item (discount + bulk discount)
     const itemDiscountTotal = (originalPrice - discountedPricePerUnit) * item.quantity + bulkDiscountAmount;
     totalDiscount += itemDiscountTotal;
 
+    const product = products.find(p => p.name === item.name);
+    const imgSrc = product?.img || '';
+
     cartItems.innerHTML += `
-      <li>
-        ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - ₹${itemTotal.toFixed(2)}
-        ${item.discount > 0 ? `<br><small>Unit Price: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>` : ''}
-        ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount Applied (${getBulkDiscountRate(item)}% off)</div>` : ''}
-        <br>
-        <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
-        <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
+      <li class="cart-item-with-image">
+        <div class="cart-img-wrapper">
+          <img src="${imgSrc}" alt="${item.name}" class="cart-img-thumb" />
+        </div>
+        <div class="cart-item-details">
+          <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
+          ${item.discount > 0 ? `<br><small>Unit: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>` : ''}
+          ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount (${getBulkDiscountRate(item)}% off)</div>` : ''}
+          <br>
+          <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
+          <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
+        </div>
       </li>
     `;
 
@@ -274,7 +281,7 @@ function updateCart() {
     }
     if (isBulkDiscountApplicable(item)) {
       message += ` (Includes ${getBulkDiscountRate(item)}% bulk discount)`;
-    }    
+    }
     message += `\n`;
   });
 
@@ -291,6 +298,7 @@ function updateCart() {
     whatsappLink.href = `https://wa.me/+919760648714`;
   }
 }
+
 
 
 clearCartBtn.addEventListener('click', () => {
