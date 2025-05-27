@@ -76,6 +76,8 @@ function renderProducts(filter = '', category = '') {
           : `<strong id="price-${p.name}">₹${price}</strong><br>`}
         <div id="action-${p.name}">${actionButtonsHTML}</div>
         <div id="bulk-note-${p.name}" class="bulk-discount-note-container"></div>
+        ${getBulkOfferMessage(p.name)}
+
       `;
 
       productList.appendChild(div);
@@ -375,3 +377,15 @@ function rotateBackground() {
 
 rotateBackground();
 setInterval(rotateBackground, 3000);
+
+
+function getBulkOfferMessage(productName) {
+  const config = BULK_DISCOUNT_PRODUCTS[productName];
+  if (!config) return '';
+
+  const sizes = config.eligibleSizes.join(' or ');
+  return `
+    <div class="bulk-offer-message" style="color: #d35400; font-weight: bold; margin-top: 6px;">
+      🎉 Special Offer: Buy any ${config.threshold} (${sizes}) and get ${config.discountRate}% OFF!
+    </div>`;
+}
