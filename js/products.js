@@ -6,7 +6,7 @@ const BULK_DISCOUNT_PRODUCTS = {
   '[C01] Doll Cake': {
     eligibleSizes: ['2 pounds', '3 pounds'],
     discountRate: 10,
-    threshold: 4
+    threshold: 2
   },
   '[C02] Doll Cake': {
     eligibleSizes: ['3 pounds'],
