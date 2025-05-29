@@ -266,11 +266,15 @@ function updateCart() {
         </div>
         <div class="cart-item-details">
           <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
-          ${item.discount > 0 ? `<br><small>Unit: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>` : ''}
+          <br><small>Unit: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>
+          ${item.discount > 0 ? `<br><small class="bulk-discount-note">( ₹${item.discount} fixed discount applied)</small>` : ''}
           ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount (${getBulkDiscountRate(item)}% off)</div>` : ''}
+
           <br>
           <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
+          <span>${item.quantity}</span>
           <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
+          
         </div>
       </li>
     `;
