@@ -502,5 +502,22 @@ header {
   white-space: normal;       /* allow line breaks */
 }
 
+.go-to-menu-btn {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 0.75em 1.2em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
 
 
