@@ -394,7 +394,7 @@ function rotateBackground() {
 }
 
 rotateBackground();
-setInterval(rotateBackground, 3000);
+setInterval(rotateBackground, 15000);
 
 
 function getBulkOfferMessage(productName) {
