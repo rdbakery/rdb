@@ -241,19 +241,21 @@ function updateCart() {
     const item = cart[key];
     cartCountValue += item.quantity;
 
-    const originalPrice = item.price;
-    const discountedPricePerUnit = item.price - item.discount;
-    let itemTotal = discountedPricePerUnit * item.quantity;
+    const originalPrice = item.price;           // price without any discount
+    const fixedDiscount = item.discount;        // fixed discount per unit
+    const priceAfterFixedDiscount = originalPrice - fixedDiscount;
+    let itemTotal = priceAfterFixedDiscount * item.quantity;
 
     let bulkDiscountAmount = 0;
+    let bulkDiscountRate = 0;
     if (isBulkDiscountApplicable(item)) {
-      const itemRate = getBulkDiscountRate(item);
-      bulkDiscountAmount = (itemTotal * itemRate) / 100;
+      bulkDiscountRate = getBulkDiscountRate(item);
+      bulkDiscountAmount = (itemTotal * bulkDiscountRate) / 100;
       itemTotal -= bulkDiscountAmount;
     }
 
     total += itemTotal;
-    const itemDiscountTotal = (originalPrice - discountedPricePerUnit) * item.quantity + bulkDiscountAmount;
+    const itemDiscountTotal = (fixedDiscount * item.quantity) + bulkDiscountAmount;
     totalDiscount += itemDiscountTotal;
 
     const product = products.find(p => p.name === item.name);
@@ -266,27 +268,29 @@ function updateCart() {
         </div>
         <div class="cart-item-details">
           <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
-          <br><small>Unit: <s>₹${originalPrice}</s> ₹${discountedPricePerUnit}</small>
-          ${item.discount > 0 ? `<br><small class="bulk-discount-note">( ₹${item.discount} fixed discount applied)</small>` : ''}
-          ${isBulkDiscountApplicable(item) ? `<div class="bulk-discount-note">Bulk Discount (${getBulkDiscountRate(item)}% off)</div>` : ''}
-
+          <br>
+          <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
+          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: -₹${fixedDiscount.toFixed(2)})</small>` : ''}
+          ${bulkDiscountRate > 0 ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% off)</small>` : ''}
           <br>
           <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
           <span>${item.quantity}</span>
           <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
-          
         </div>
       </li>
     `;
 
-    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - *₹${itemTotal.toFixed(2)}*`;
-    if (item.discount > 0) {
-      message += ` (Unit Price: ₹${originalPrice} → ₹${discountedPricePerUnit})`;
+    // WhatsApp message line: show unit price WITHOUT discount, then both discounts separately
+    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - *₹${itemTotal.toFixed(2)}* (Unit Price: ₹${originalPrice.toFixed(2)}`;
+
+    if (fixedDiscount > 0) {
+      message += ` - ₹${fixedDiscount.toFixed(2)} fixed discount`;
     }
-    if (isBulkDiscountApplicable(item)) {
-      message += ` (Includes ${getBulkDiscountRate(item)}% bulk discount)`;
+    if (bulkDiscountRate > 0) {
+      message += ` + ${bulkDiscountRate}% bulk discount`;
     }
-    message += `\n`;
+
+    message += `)\n`;
   });
 
   cartCount.textContent = cartCountValue;
@@ -302,6 +306,8 @@ function updateCart() {
     whatsappLink.href = `https://wa.me/+919760648714`;
   }
 }
+
+
 
 
 
