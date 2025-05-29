@@ -277,14 +277,6 @@ main {
   color: white;
 }
 
-#bakery-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 0.8rem;
-  color: #5c3d2e;
-  transition: all 0.3s ease;
-  text-align: center;
-}
 
 .size-select {
   padding: 0.4rem;
@@ -318,7 +310,8 @@ main {
 
 .fancy-heading {
   font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* or adjust to preferred size */
+  font-weight: 700;
   color: #004aad;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0.6rem auto 1rem;
@@ -330,7 +323,9 @@ main {
   word-wrap: break-word;
   width: fit-content;
   max-width: 90%;
+  transition: all 0.3s ease; /* from #bakery-name */
 }
+
 
 .header-wrapper {
   display: flex;
@@ -487,4 +482,25 @@ header {
 .cart-item-details {
   flex: 1;
 }
+
+#offer-rotator {
+  display: inline-block;
+  background-color: #f39c12;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 0.5em;
+  margin: 0.5rem auto;
+  max-width: 90%;
+  animation: pulse 1.5s infinite alternate;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;     /* breaks long words if needed */
+  overflow-wrap: break-word; /* handles long words gracefully */
+  white-space: normal;       /* allow line breaks */
+}
+
+
 
