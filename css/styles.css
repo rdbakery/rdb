@@ -202,8 +202,6 @@ main {
   list-style: none;
   padding-left: 0;
   margin-bottom: 1rem;
-  max-height: 200px;
-  overflow-y: auto;
 }
 
 #cart-items li {
@@ -279,14 +277,6 @@ main {
   color: white;
 }
 
-#bakery-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 0.8rem;
-  color: #5c3d2e;
-  transition: all 0.3s ease;
-  text-align: center;
-}
 
 .size-select {
   padding: 0.4rem;
@@ -320,7 +310,8 @@ main {
 
 .fancy-heading {
   font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* or adjust to preferred size */
+  font-weight: 700;
   color: #004aad;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0.6rem auto 1rem;
@@ -332,7 +323,9 @@ main {
   word-wrap: break-word;
   width: fit-content;
   max-width: 90%;
+  transition: all 0.3s ease; /* from #bakery-name */
 }
+
 
 .header-wrapper {
   display: flex;
@@ -449,3 +442,82 @@ header {
   transition: background-image 1s ease-in-out;
   color: #fff; /* Improve text visibility */
 }
+
+.bulk-discount-note {
+  color: green;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+
+.bulk-discount-note {
+  color: green;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+.bulk-discount-note-container {
+  margin-top: 4px;
+}
+
+
+.cart-item-with-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.cart-img-wrapper img.cart-img-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+#offer-rotator {
+  display: inline-block;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 0.5em;
+  margin: 0.5rem auto;
+  max-width: 90%;
+  animation: pulse 1.5s infinite alternate;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;     /* breaks long words if needed */
+  overflow-wrap: break-word; /* handles long words gracefully */
+  white-space: normal;       /* allow line breaks */
+}
+
+.go-to-menu-btn {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 0.75em 1.2em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+
+

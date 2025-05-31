@@ -1,3 +1,31 @@
+let bulkDiscountRate = 0;
+const BULK_DISCOUNT_THRESHOLD = 0;
+
+
+const BULK_DISCOUNT_PRODUCTS = {
+  '[C01] Doll Cake': {
+    eligibleSizes: ['2 pounds', '3 pounds'],
+    discountRate: 10,
+    threshold: 2
+  },
+  '[C02] Doll Cake': {
+    eligibleSizes: ['3 pounds'],
+    discountRate: 12,
+    threshold: 2
+  },
+  '[P05] FARMHOUSE PIZZA': {
+    eligibleSizes: ['Extra Large - 9 inch'],
+    discountRate: 5,
+    threshold: 2
+  }
+  ,
+  '[P06] EVERYTHING ON IT PIZZA': {
+    eligibleSizes: ['Extra Large - 9 inch'],
+    discountRate: 5,
+    threshold: 2
+  }
+};
+
 const products = [
     {
       name: '[C01] Doll Cake',
