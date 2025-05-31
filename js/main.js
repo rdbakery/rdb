@@ -411,7 +411,7 @@ function getBulkOfferMessage(productName) {
 
 const offers = Object.entries(BULK_DISCOUNT_PRODUCTS).map(([productName, config]) => {
   const sizesText = config.eligibleSizes.join(' or ');
-  return `🎉 Buy ${config.threshold}+ (${sizesText}) of ${productName} and get ${config.discountRate}% OFF!`;
+  return `🎉 Buy ${config.threshold} (${sizesText}) of ${productName} and get ${config.discountRate}% OFF!`;
 });
 
 
