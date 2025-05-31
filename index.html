@@ -50,7 +50,11 @@
 </head>
 <body>
   <header>
-    <h1 class="fancy-heading">रॉयल डिलाइट बेकरी</h1>
+    <h1 id="bakery-name" class="fancy-heading">रॉयल डिलाइट बेकरी</h1>
+    <div style="text-align: center;">
+      <div id="offer-rotator">Loading offers...</div>
+    </div>
+    
     <div class="rotating-info">
       <div class="info-item">
         <div class="fssai-badge">
@@ -79,6 +83,8 @@
     </div>
   </header>
 
+  <button id="go-to-menu" class="go-to-menu-btn">🍽️ Menu</button>
+  
   <main>
     <div class="category-menu" id="category-menu">
       <button class="category-btn active" data-category="">All</button>
