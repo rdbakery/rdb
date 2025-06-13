@@ -50,17 +50,20 @@
 </head>
 <body>
   <header>
-    <h1 id="bakery-name" class="fancy-heading">रॉयल डिलाइट बेकरी</h1>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem;">
+      <h1 id="bakery-name" class="fancy-heading">
+        रॉयल डिलाइट बेकरी
+        <div class="fssai-subtext">FSSAI Registration Number: <span>20425004000384</span></div>
+      </h1>
+      
+    </div>
+    
     <div style="text-align: center;">
       <div id="offer-rotator">Loading offers...</div>
     </div>
     
     <div class="rotating-info">
-      <div class="info-item">
-        <div class="fssai-badge">
-          <img src="img/fssi-registration.jpg" alt="FSSAI Registered Bakery" />
-        </div>
-      </div>
+    
     
       <div class="info-item">
         <p class="highlight-contact">
@@ -71,16 +74,14 @@
             </a>
           </strong>
         </p>
-      </div>
-      
-    
-      <div class="info-item">
         <p class="location">
           <a href="https://maps.app.goo.gl/Bw9113xXFXb2WMvU9" target="_blank" rel="noopener noreferrer">
             <strong>📍 नौबतपुर - विक्रम मोर, हिरामणि कॉम्प्लेक्स</strong>
           </a>
         </p>
       </div>
+      
+      
     </div>
     
     <input type="text" id="search" placeholder="Search product...">
