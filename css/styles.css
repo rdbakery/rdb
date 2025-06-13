@@ -145,7 +145,7 @@ main {
 }
 
 .product h3 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin: 0.5rem 0 0.2rem;
   font-weight: bold;
 }
@@ -485,22 +485,46 @@ header {
 
 #offer-rotator {
   display: inline-block;
-  background-color: red;
-  color: white;
+  background: linear-gradient(45deg, #ff4e50, #f9d423); /* gradient red-orange-yellow */
+  color: #fff;
   font-weight: bold;
-  padding: 0.5em 1em;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  padding: 0.6em 1.2em;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
   cursor: pointer;
-  border-radius: 0.5em;
-  margin: 0.5rem auto;
-  max-width: 90%;
-  animation: pulse 1.5s infinite alternate;
+  border-radius: 1em;
+  margin: 0.7rem auto;
+  max-width: 95%;
+  animation: bounceFlash 1.8s infinite ease-in-out;
   text-align: center;
   box-sizing: border-box;
-  word-wrap: break-word;     /* breaks long words if needed */
-  overflow-wrap: break-word; /* handles long words gracefully */
-  white-space: normal;       /* allow line breaks */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-shadow: 1px 1px 2px #00000055;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
 }
+
+#offer-rotator:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounceFlash {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 .go-to-menu-btn {
   display: none;
@@ -521,3 +545,13 @@ header {
 
 
 
+.bulk-offer-message{
+    font-size: 13px;
+    color: #0057d8;
+    font-weight: 500;
+    background: #e6f0ff;
+    padding: 6px 10px;
+    margin-top: 6px;
+    border-left: 4px solid #1a73e8;
+    border-radius: 4px;
+}
