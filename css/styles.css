@@ -242,24 +242,6 @@ main {
   background-color: #ef476f;
 }
 
-.location {
-  font-size: 1rem;
-  margin: 0.3rem 0 1rem;
-}
-
-.location a strong {
-  font-size: .8rem;
-  font-weight: 700;
-  color: #b41c1c;
-  background-color: #cfd8a8;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  display: inline-block;
-}
-
-.location a:hover {
-  text-decoration: underline;
-}
 
 .qty-btn {
   padding: 4px 10px;
@@ -325,6 +307,18 @@ main {
   max-width: 90%;
   transition: all 0.3s ease; /* from #bakery-name */
 }
+.fssai-subtext {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.fssai-subtext span {
+  color: #ef476f;
+  font-weight: 600;
+}
+
 
 
 .header-wrapper {
@@ -333,19 +327,46 @@ main {
   flex-wrap: wrap;
 }
 
-.highlight-contact {
-  font-size: .8rem;
-  font-weight: 500;
-  color: #5c3d2e;
+
+.info-item {
+  text-align: center;
+  line-height: 1.4; /* Reduced line height */
   background: #fff4e6;
-  border-left: 5px solid #f7a072;
-  padding: 0.2rem 1rem;
-  margin: 0.2rem auto;
+  border-left: 4px solid #f7a072;
+  padding: 0.6rem 0.8rem; /* Reduced padding */
+  margin: 0.4rem auto;
   width: fit-content;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  display: inline-block;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem; /* Apply smaller base font */
 }
+
+.highlight-contact {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #5c3d2e;
+  margin: 0.15rem auto;
+}
+
+.location {
+  font-size: 0.78rem;
+  margin-top: 0.3rem;
+}
+
+.location a strong {
+  font-weight: 700;
+  color: #b41c1c;
+  background-color: #f0e2a8;
+  padding: 0.2rem 0.5rem; /* Smaller padding */
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 0.78rem;
+}
+
+.location a:hover {
+  text-decoration: underline;
+}
+
 
 .fssai-badge {
   margin: 0.5rem auto 1rem;
@@ -485,14 +506,14 @@ header {
 
 #offer-rotator {
   display: inline-block;
-  background: linear-gradient(45deg, #ff4e50, #f9d423); /* gradient red-orange-yellow */
+  background: linear-gradient(45deg, #2193b0, #6dd5ed); 
   color: #fff;
   font-weight: bold;
-  padding: 0.6em 1.2em;
-  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  padding: 0.5em 1em;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem); /* Reduced font size */
   cursor: pointer;
   border-radius: 1em;
-  margin: 0.7rem auto;
+  margin: 0.6rem auto;
   max-width: 95%;
   animation: bounceFlash 1.8s infinite ease-in-out;
   text-align: center;
@@ -504,6 +525,7 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
 }
+
 
 #offer-rotator:hover {
   transform: scale(1.05);
