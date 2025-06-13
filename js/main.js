@@ -375,27 +375,6 @@ function getRandomImage(folder, prefix, count) {
   return `img/${folder}/${prefix}${num}.jpg`;
 }
 
-const images = [
-  getRandomImage('cake', 'C', 40),
-  getRandomImage('pizza', 'P', 6),
-  getRandomImage('burger', 'B', 2),
-  getRandomImage('sandwich', 'S', 2),
-  getRandomImage('beverage', 'D', 9)
-];
-
-let index = 0;
-
-function rotateBackground() {
-  header.style.backgroundImage = `url('${images[index]}')`;
-  header.style.backgroundSize = 'cover';
-  header.style.backgroundPosition = 'center';
-  header.style.transition = 'background-image 1s ease-in-out';
-  index = (index + 1) % images.length;
-}
-
-rotateBackground();
-setInterval(rotateBackground, 15000);
-
 
 function getBulkOfferMessage(productName) {
   const config = BULK_DISCOUNT_PRODUCTS[productName];
@@ -403,9 +382,11 @@ function getBulkOfferMessage(productName) {
 
   const sizes = config.eligibleSizes.join(' or ');
   return `
-    <div class="bulk-offer-message" style="color: #d35400; font-weight: bold; margin-top: 6px;">
-      🎉 Special Offer: Buy any ${config.threshold} (${sizes}) and get ${config.discountRate}% OFF!
-    </div>`;
+  <div class="bulk-offer-message">
+    🎉 <strong>Special Offer:</strong> Buy any <strong>${config.threshold}</strong> 
+    (<em>${sizes}</em>) and get <strong>${config.discountRate}% OFF</strong>!
+  </div>`;
+
 }
 
 
