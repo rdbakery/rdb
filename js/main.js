@@ -317,6 +317,7 @@ function updateCart() {
 
 
 clearCartBtn.addEventListener('click', () => {
+  document.querySelectorAll('.bulk-discount-note, .bulk-discount-message').forEach(el => el.remove());
   cart = {};
   updateCart();
 
