@@ -188,7 +188,6 @@ function changeQty(key, delta) {
           <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
         </div>`;
     }
-
     updateBulkNote(name);
   }
 }
@@ -212,22 +211,27 @@ function updateBulkNote(productName) {
   const size = select ? select.value : '';
   const key = size ? `${productName}|${size}` : productName;
   const container = document.getElementById(`bulk-note-${productName}`);
+  container.innerHTML = '';
 
-  if (cart[key] && isBulkDiscountApplicable(cart[key])) {
-    const item = cart[key];
-    if (item && isBulkDiscountApplicable(item)) {
-      const rate = getBulkDiscountRate(item);
-      container.innerHTML = `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off)</div>`;
-    }
-  } else {
-    container.innerHTML = '';
+  const item = cart[key];
+  if (!item) return;
+
+  let messages = '';
+
+  // Fixed Discount Message
+  if (item.discount && item.discount > 0) {
+    messages += `<div class="bulk-discount-note">Fixed Discount Applied: ₹${item.discount} off</div>`;
   }
+
+  // Bulk Discount Message
+  if (isBulkDiscountApplicable(item)) {
+    const rate = getBulkDiscountRate(item);
+    messages += `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off)</div>`;
+  }
+
+  container.innerHTML = messages;
 }
 
-// ... rest of your existing updateCart(), event listeners, image rotation, etc. remain unchanged
-
-
-// ✅ Updated part: added product images in cart display
 
 function updateCart() {
   cartItems.innerHTML = '';
@@ -300,15 +304,16 @@ function updateCart() {
     if (totalDiscount > 0) {
       message += `You saved: ₹${totalDiscount.toFixed(2)} on this order! 🎉\n`;
     }
-    cartItems.innerHTML += `<li><strong>Total: ₹${total.toFixed(2)}</strong></li>`;
+    cartItems.innerHTML += `
+      <li><strong>Total: ₹${total.toFixed(2)}</strong></li>
+      ${totalDiscount > 0 ? `<li class="cart-savings">🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!</li>` : ''}
+    `;
+
     whatsappLink.href = `https://wa.me/+919760648714?text=${encodeURIComponent(message)}`;
   } else {
     whatsappLink.href = `https://wa.me/+919760648714`;
   }
 }
-
-
-
 
 
 clearCartBtn.addEventListener('click', () => {
@@ -340,9 +345,20 @@ document.querySelectorAll('#category-menu button').forEach(btn => {
     document.querySelectorAll('#category-menu button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     selectedCategory = btn.dataset.category;
+
     renderProducts(searchInput.value, selectedCategory);
+
+    // Wait for DOM to update before restoring notes
+    setTimeout(() => {
+      Object.keys(cart).forEach(key => {
+        const [name, size] = key.split('|');
+        updateBulkNote(name);
+      });
+    }, 0); // 0 ms ensures it runs after DOM paint
   });
 });
+
+
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 80) {
