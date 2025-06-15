@@ -225,11 +225,13 @@ function updateBulkNote(productName) {
   }
   
 
-  // Bulk Discount Message
-  if (isBulkDiscountApplicable(item)) {
-    const rate = getBulkDiscountRate(item);
-    messages += `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off)</div>`;
-  }
+// Bulk Discount Message
+if (isBulkDiscountApplicable(item)) {
+  const rate = getBulkDiscountRate(item);
+  const priceAfterFixed = item.price - item.discount;
+const discountAmount = Math.round(priceAfterFixed * item.quantity * (rate / 100));
+  messages += `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off): ₹${discountAmount} off</div>`;
+}
 
   container.innerHTML = messages;
 }
@@ -277,35 +279,39 @@ function updateCart() {
           <br>
           <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
           ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = -₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
-          ${bulkDiscountRate > 0 ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% off)</small>` : ''}
+          ${bulkDiscountRate > 0
+            ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% = -₹${bulkDiscountAmount.toFixed(2)})</small>`
+            : ''}
+          
           <br>
-          <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
+          <button class="qty-btn" onclick='changeQty("${key}", -1)'>-</button>
           <span>${item.quantity}</span>
-          <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
+          <button class="qty-btn" onclick='changeQty("${key}", 1)'>+</button>
         </div>
       </li>
     `;
 
     // WhatsApp message line: show unit price WITHOUT discount, then both discounts separately
-    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - *₹${itemTotal.toFixed(2)}* (Unit Price: ₹${originalPrice.toFixed(2)}`;
-
+    message += `${i + 1}. ${item.name}${item.size ? ` (${item.size})` : ''} x${item.quantity} - *₹${itemTotal.toFixed(2)}*\n`;
+    message += `   • Unit Price: ₹${originalPrice.toFixed(2)}\n`;
+    
     if (fixedDiscount > 0) {
-      message += ` - ₹${fixedDiscount.toFixed(2)} fixed discount`;
+      message += `   • - Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)}\n`;
     }
     if (bulkDiscountRate > 0) {
-      message += ` + ${bulkDiscountRate}% bulk discount`;
-    }
-
-    message += `)\n`;
+      message += `   • - Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}\n`;
+    }    
+    
+    message += `\n`;
   });
 
   cartCount.textContent = cartCountValue;
 
   if (cartCountValue > 0) {
-    message += `*Total: ₹${total.toFixed(2)}*\n`;
+    message += `\n🧮 *Total: ₹${total.toFixed(2)}*\n`;
     if (totalDiscount > 0) {
-      message += `You saved: ₹${totalDiscount.toFixed(2)} on this order! 🎉\n`;
-    }
+      message += `🎉 *You saved: ₹${totalDiscount.toFixed(2)} on this order!*\n`;
+    }    
     cartItems.innerHTML += `
       <li><strong>Total: ₹${total.toFixed(2)}</strong></li>
       ${totalDiscount > 0 ? `<li class="cart-savings">🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!</li>` : ''}
