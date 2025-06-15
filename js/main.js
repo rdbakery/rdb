@@ -220,8 +220,10 @@ function updateBulkNote(productName) {
 
   // Fixed Discount Message
   if (item.discount && item.discount > 0) {
-    messages += `<div class="bulk-discount-note">Fixed Discount Applied: ₹${item.discount} off</div>`;
+    const totalDiscount = item.discount * item.quantity;
+    messages += `<div class="bulk-discount-note">Fixed Discount Applied: ₹${totalDiscount} off</div>`;
   }
+  
 
   // Bulk Discount Message
   if (isBulkDiscountApplicable(item)) {
@@ -274,7 +276,7 @@ function updateCart() {
           <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
           <br>
           <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
-          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: -₹${fixedDiscount.toFixed(2)})</small>` : ''}
+          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = -₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
           ${bulkDiscountRate > 0 ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% off)</small>` : ''}
           <br>
           <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
