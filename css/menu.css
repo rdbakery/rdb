@@ -23,7 +23,7 @@
   font-weight: 500;
   margin: 5px;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .category-menu button.active {
@@ -52,7 +52,7 @@
   .category-menu button {
     margin: 4px;
     padding: 6px 10px; /* smaller padding on mobile */
-    font-size: 0.6rem; /* smaller text on mobile */
+    font-size: 0.8rem; /* smaller text on mobile */
     width: auto; /* compact buttons on mobile */
     min-width: 70px;
     flex: 1 0 auto;
