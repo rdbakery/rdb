@@ -1,0 +1,33 @@
+#search {
+  padding: 0.2rem .5rem;
+  width: 240px;
+  font-size: 0.7rem;
+  border: 2px solid #f7a072;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 90%;
+  max-width: 300px;
+}
+
+#search:focus {
+  border-color: #ef476f;
+  box-shadow: 0 0 5px rgba(239, 71, 111, 0.5);
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 1rem 0.5rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header h1,
+  .contact,
+  .location,
+  #search {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

@@ -1,0 +1,77 @@
+.category-menu {
+  flex-direction: column;
+  width: 200px;
+  background: #fff4e6;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #f7a072;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.category-menu button {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-weight: 500;
+  margin: 5px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.category-menu button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .category-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #f7a072;
+    position: relative;
+    top: 0;
+    padding: 0.4rem;
+    justify-content: center;
+    background: #fff4e6;
+  }
+
+  .category-menu button {
+    margin: 4px;
+    padding: 6px 10px; /* smaller padding on mobile */
+    font-size: 0.6rem; /* smaller text on mobile */
+    width: auto; /* compact buttons on mobile */
+    min-width: 70px;
+    flex: 1 0 auto;
+  }
+}
+
+.go-to-menu-btn {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em 1em; /* reduced size for mobile */
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+  font-size: 0.7rem;
+}
