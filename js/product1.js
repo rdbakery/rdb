@@ -28,267 +28,226 @@ const BULK_DISCOUNT_PRODUCTS = {
 
 const products = [
   {
-    productId: 'C01',
     name: '[C01] Doll Cake',
-    desc: '',
+    desc: 'Make her birthday magical with this princess-style doll cake, perfect for celebrations!',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300 , discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C01.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C02',
     name: '[C02] Doll Cake',
-    desc: '',
+    desc: 'Delight little ones with this elegant doll cake—beautiful outside, delicious inside!',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300, discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C02.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C03',
     name: '[C03] Doll Cake',
-    desc: '',
+    desc: 'A stunning doll cake that’s as tasty as it is adorable—perfect for kids’ parties.',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300, discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C03.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C04',
     name: '[C04] Doll Cake',
-    desc: '',
+    desc: 'Surprise your little angel with a fairytale-inspired doll cake!',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300, discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C04.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C05',
     name: '[C05] Doll Cake',
-    desc: '',
+    desc: 'Sweeten birthdays with this charming and creamy doll-shaped cake.',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300, discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C05.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C06',
     name: '[C06] Doll Cake',
-    desc: '',
+    desc: 'Treat your princess to this beautifully decorated doll cake—crafted with love.',
     sizes: [
-      { label: '1 pound', price: 300, discount: 20 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 850, discount: 100 }
+      { label: '1 pound', price: 300, discount:20 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 850, discount:100 }
     ],
     img: 'img/cake/C06.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C07',
     name: '[C07] Photo Cake',
-    desc: '',
+    desc: 'Customize your cake with a photo! Perfect for birthdays, anniversaries, and surprises.',
     sizes: [
-      { label: '1 pound', price: 450, discount: 50 },
-      { label: '2 pounds', price: 680, discount: 80 },
-      { label: '3 pounds', price: 920, discount: 120 }
+      { label: '1 pound', price: 450, discount:50 },
+      { label: '2 pounds', price: 680, discount:80 },
+      { label: '3 pounds', price: 920, discount:120 }
     ],
     img: 'img/cake/C07.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C08',
     name: '[C08] Photo Cake',
-    desc: '',
+    desc: 'Capture sweet memories on cake—add your favorite photo and let the flavors shine.',
     sizes: [
-      { label: '1 pound', price: 450, discount: 50 },
-      { label: '2 pounds', price: 680, discount: 80 },
-      { label: '3 pounds', price: 920, discount: 120 }
+      { label: '1 pound', price: 450, discount:50 },
+      { label: '2 pounds', price: 680, discount:80 },
+      { label: '3 pounds', price: 920, discount:120 }
     ],
     img: 'img/cake/C08.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C09',
     name: '[C09] 3 Tier Chocolate Cake',
-    desc: '',
+    desc: 'Celebrate big moments with this rich and stunning 3-tier chocolate masterpiece!',
     sizes: [
-      { label: '3 pound', price: 780, discount: 80 },
-      { label: '4 pounds', price: 1040, discount: 120 },
-      { label: '5 pounds', price: 1250, discount: 200 }
+      { label: '3 pound', price: 780, discount:80 },
+      { label: '4 pounds', price: 1040, discount:120 },
+      { label: '5 pounds', price: 1250, discount:200 }
     ],
     img: 'img/cake/C09.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C10',
     name: '[C10] Butterscotch',
-    desc: '',
+    desc: 'Classic butterscotch flavor layered with love—perfect for every sweet occasion.',
     sizes: [
-      { label: '2 pound', price: 550, discount: 50 },
-      { label: '3 pounds', price: 750, discount: 100 },
-      { label: '5 pounds', price: 1200, discount: 150 }
+      { label: '2 pound', price: 550, discount:50 },
+      { label: '3 pounds', price: 750, discount:100 },
+      { label: '5 pounds', price: 1200, discount:150 }
     ],
     img: 'img/cake/C10.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C11',
     name: '[C11] Doll Cake',
-    desc: '',
+    desc: 'Celebrate with this adorable doll cake that’s sure to bring joy to any party!',
     sizes: [
-      { label: '1 pound', price: 300, discount: 10 },
-      { label: '2 pounds', price: 580, discount: 50 },
-      { label: '3 pounds', price: 870, discount: 100 }
+      { label: '1 pound', price: 300, discount:10 },
+      { label: '2 pounds', price: 580, discount:50 },
+      { label: '3 pounds', price: 870, discount:100 }
     ],
     img: 'img/cake/C11.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C12',
     name: '[C12] 2 Tier Cake',
-    desc: '',
+    desc: 'Elegant and rich—this 2-tier cake is ideal for weddings, engagements, and big events.',
     sizes: [
-      { label: '3 pounds', price: 750, discount: 50 },
-      { label: '5 pounds', price: 1200, discount: 150 }
+      { label: '3 pounds', price: 750, discount:50 },
+      { label: '5 pounds', price: 1200, discount:150 }
     ],
     img: 'img/cake/C12.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C13',
     name: '[C13] Two tier Cake',
-    desc: '',
+    desc: 'Make every celebration grand with this two-tier cake loaded with flavor and beauty.',
     sizes: [
-      { label: '3 pounds', price: 750, discount: 50 },
-      { label: '5 pounds', price: 1200, discount: 150 }
+      { label: '3 pounds', price: 750 , discount:50 },
+      { label: '5 pounds', price: 1200, discount:150 }
     ],
     img: 'img/cake/C13.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C14',
     name: '[C14] Doraemon Cake',
-    desc: '',
+    desc: 'Bring your child’s favorite cartoon to life with this fun-filled Doraemon cake!',
     sizes: [
-      { label: '1 pound', price: 270, discount: 20 },
-      { label: '2 pounds', price: 520, discount: 50 },
-      { label: '3 pounds', price: 700, discount: 80 }
+      { label: '1 pound', price: 270, discount:20 },
+      { label: '2 pounds', price: 520, discount:50 },
+      { label: '3 pounds', price: 700, discount:80 }
     ],
     img: 'img/cake/C14.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C15',
     name: '[C15] Red Velvet',
-    desc: '',
+    desc: 'Indulge in the luxurious taste of red velvet—soft, moist, and unforgettable.',
     sizes: [
-      { label: '1 pound', price: 550, discount: 50 },
-      { label: '2 pounds', price: 1050, discount: 100 },
-      { label: '3 pounds', price: 1550, discount: 200 }
+      { label: '1 pound', price: 550, discount:50 },
+      { label: '2 pounds', price: 1050, discount:100 },
+      { label: '3 pounds', price: 1550, discount:200 }
     ],
     img: 'img/cake/C15.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C16',
     name: '[C16] Teddy Bear Cake',
-    desc: '',
+    desc: 'Super cute teddy bear cake that melts hearts and satisfies sweet cravings.',
     sizes: [
-      { label: '1 pound', price: 270, discount: 20 },
-      { label: '2 pounds', price: 520, discount: 50 },
-      { label: '3 pounds', price: 700, discount: 100 }
+      { label: '1 pound', price: 270, discount:20 },
+      { label: '2 pounds', price: 520, discount:50 },
+      { label: '3 pounds', price: 700, discount:100 }
     ],
     img: 'img/cake/C16.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C17',
     name: '[C17] ButterScotch',
-    desc: '',
+    desc: 'Deliciously soft and creamy butterscotch cake for every mood and moment.',
     sizes: [
-      { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 30 },
-      { label: '3 pounds', price: 720, discount: 70 }
+      { label: '1 pound', price: 250, discount:10 },
+      { label: '2 pounds', price: 480, discount:30 },
+      { label: '3 pounds', price: 720, discount:70 }
     ],
     img: 'img/cake/C17.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C18',
     name: '[C18] ButterScotch',
-    desc: '',
+    desc: 'A delightful blend of caramel and vanilla—this butterscotch cake is a crowd favorite.',
     sizes: [
-      { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 30 },
-      { label: '3 pounds', price: 720, discount: 70 }
+      { label: '1 pound', price: 250, discount:10 },
+      { label: '2 pounds', price: 480, discount:30 },
+      { label: '3 pounds', price: 720, discount:70 }
     ],
     img: 'img/cake/C18.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C19',
     name: '[C19] ButterScotch',
-    desc: '',
+    desc: 'Fluffy, moist and irresistibly sweet—your perfect butterscotch indulgence.',
     sizes: [
-      { label: '1 pound', price: 260, discount: 20 },
-      { label: '2 pounds', price: 500, discount: 50 },
-      { label: '3 pounds', price: 750, discount: 80 }
+      { label: '1 pound', price: 260, discount:20 },
+      { label: '2 pounds', price: 500, discount:50 },
+      { label: '3 pounds', price: 750, discount:80 }
     ],
     img: 'img/cake/C19.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C20',
     name: '[C20] ButterScotch',
-    desc: '',
+    desc: 'Golden butterscotch layers that promise to melt in your mouth—order now!',
     sizes: [
-      { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 30 },
-      { label: '3 pounds', price: 720, discount: 80 }
+      { label: '1 pound', price: 250, discount:10 },
+      { label: '2 pounds', price: 480, discount:30 },
+      { label: '3 pounds', price: 720, discount:80 }
     ],
     img: 'img/cake/C20.jpg',
     category: 'Cake'
   },
-
   {
-    productId: 'C21',
     name: '[C21] ButterScotch',
-    desc: '',
+    desc: 'Classic butterscotch delight topped with crunchy caramel and smooth cream.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 40 },
@@ -297,51 +256,46 @@ const products = [
     img: 'img/cake/C21.jpg',
     category: 'Cake'
   },
-
+  
   {
-    productId: 'C22',
-    name: '[C22] ButterScotch',
-    desc: '',
+    name: '[C22] Pine Apple',
+    desc: 'Tropical pineapple flavor with a juicy twist and creamy layers.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 40 },
+      { label: '2 pounds', price: 480, discount: 30 },
       { label: '3 pounds', price: 720, discount: 70 }
     ],
     img: 'img/cake/C22.jpg',
     category: 'Cake'
   },
-
+  
   {
-    productId: 'C23',
-    name: '[C23] ButterScotch',
-    desc: '',
+    name: '[C23] Pine Apple',
+    desc: 'A refreshing choice with real pineapple essence and soft sponge.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 40 },
+      { label: '2 pounds', price: 480, discount: 30 },
       { label: '3 pounds', price: 720, discount: 70 }
     ],
     img: 'img/cake/C23.jpg',
     category: 'Cake'
   },
-
+  
   {
-    productId: 'C24',
-    name: '[C24] ButterScotch',
-    desc: '',
+    name: '[C24] Pine Apple',
+    desc: 'Delicious pineapple cake perfect for light celebrations and summer vibes.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
-      { label: '2 pounds', price: 480, discount: 40 },
+      { label: '2 pounds', price: 480, discount: 30 },
       { label: '3 pounds', price: 720, discount: 70 }
     ],
     img: 'img/cake/C24.jpg',
     category: 'Cake'
   },
-
-     
+  
   {
-    productId: 'C25',
     name: '[C25] Pine Apple',
-    desc: '',
+    desc: 'Fluffy pineapple cake layered with cream and fruity richness.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -350,10 +304,10 @@ const products = [
     img: 'img/cake/C25.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C26',
     name: '[C26] Pine Apple',
-    desc: '',
+    desc: 'Soft, tangy pineapple sponge cake with melt-in-mouth goodness.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -362,10 +316,10 @@ const products = [
     img: 'img/cake/C26.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C27',
-    name: '[C27] Bule Berry',
-    desc: '',
+    name: '[C27] Blue Berry',
+    desc: 'Indulgent blueberry cake with real berry compote and silky cream.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -374,10 +328,10 @@ const products = [
     img: 'img/cake/C27.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C28',
-    name: '[C28] Bule Berry',
-    desc: '',
+    name: '[C28] Blue Berry',
+    desc: 'Juicy blueberry explosion with smooth frosting and rich base.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -386,10 +340,10 @@ const products = [
     img: 'img/cake/C28.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C29',
-    name: '[C29] Bule Berry',
-    desc: '',
+    name: '[C29] Blue Berry',
+    desc: 'Velvety cream and blueberry bursts in every bite of this moist cake.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -398,10 +352,10 @@ const products = [
     img: 'img/cake/C29.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C30',
     name: '[C30] Rasmalai Cake',
-    desc: '',
+    desc: 'Fusion of traditional rasmalai and soft cake layers – a creamy desi treat.',
     sizes: [
       { label: '1 pound', price: 300, discount: 20 },
       { label: '2 pounds', price: 580, discount: 50 },
@@ -410,10 +364,10 @@ const products = [
     img: 'img/cake/C30.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C31',
     name: '[C31] Rasmalai Cake',
-    desc: '',
+    desc: 'Perfect blend of cardamom-flavored cream and rasmalai pieces.',
     sizes: [
       { label: '1 pound', price: 300, discount: 20 },
       { label: '2 pounds', price: 580, discount: 50 },
@@ -422,10 +376,10 @@ const products = [
     img: 'img/cake/C31.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C32',
     name: '[C32] Rasmalai Cake',
-    desc: '',
+    desc: 'A festive rasmalai dessert cake that melts in your mouth.',
     sizes: [
       { label: '1 pound', price: 350, discount: 30 },
       { label: '2 pounds', price: 660, discount: 50 },
@@ -434,10 +388,10 @@ const products = [
     img: 'img/cake/C32.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C33',
     name: '[C33] Rasmalai Cake',
-    desc: '',
+    desc: 'Loaded with rasmalai syrup and saffron cream, it’s irresistible.',
     sizes: [
       { label: '1 pound', price: 260, discount: 10 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -446,10 +400,10 @@ const products = [
     img: 'img/cake/C33.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C34',
     name: '[C34] Black Forest',
-    desc: '',
+    desc: 'A classic favorite with chocolate sponge, cherries, and whipped cream.',
     sizes: [
       { label: '1 pound', price: 260, discount: 20 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -458,10 +412,10 @@ const products = [
     img: 'img/cake/C34.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C35',
     name: '[C35] Black Forest',
-    desc: '',
+    desc: 'Decadent layers of dark cocoa and cherry filling in every bite.',
     sizes: [
       { label: '1 pound', price: 260, discount: 10 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -470,22 +424,22 @@ const products = [
     img: 'img/cake/C35.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C36',
     name: '[C36] Dark Chocolate',
-    desc: '',
+    desc: 'Intense dark chocolate layers with a rich, fudgy finish.',
     sizes: [
       { label: '1 pound', price: 280, discount: 20 },
       { label: '2 pounds', price: 550, discount: 50 },
       { label: '3 pounds', price: 820, discount: 80 }
     ],
-    img: 'img/cake/C36.jpg',
+    img: 'img/cake/C34.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C37',
     name: '[C37] Black Forest',
-    desc: '',
+    desc: 'Creamy, chocolatey indulgence with a hint of cherry liqueur.',
     sizes: [
       { label: '1 pound', price: 260, discount: 20 },
       { label: '2 pounds', price: 500, discount: 40 },
@@ -494,10 +448,10 @@ const products = [
     img: 'img/cake/C37.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C38',
     name: '[C38] Dark Chocolate',
-    desc: '',
+    desc: 'Perfect for choco-lovers – smooth, bold and rich in flavor.',
     sizes: [
       { label: '1 pound', price: 260, discount: 10 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -506,10 +460,10 @@ const products = [
     img: 'img/cake/C38.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C39',
-    name: '[C39] 2 Tier Dark Choclate',
-    desc: '',
+    name: '[C39] 2 Tier Dark Chocolate',
+    desc: 'Layered chocolate bliss in a grand two-tier celebration design.',
     sizes: [
       { label: '2 pounds', price: 580, discount: 50 },
       { label: '3 pounds', price: 850, discount: 100 }
@@ -517,10 +471,10 @@ const products = [
     img: 'img/cake/C39.jpg',
     category: 'Cake'
   },
+  
   {
-    productId: 'C40',
     name: '[C40] Dark Chocolate',
-    desc: '',
+    desc: 'Rich, moist chocolate cake topped with smooth ganache frosting.',
     sizes: [
       { label: '1 pound', price: 300, discount: 20 },
       { label: '2 pounds', price: 580, discount: 50 },
@@ -530,9 +484,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C41',
     name: '[C41] Chocolate Cake',
-    desc: '',
+    desc: 'Classic rich chocolate flavor with soft sponge layers, perfect for all chocolate lovers.',
     sizes: [
       { label: '1 pound', price: 280, discount: 20 },
       { label: '2 pounds', price: 550, discount: 50 },
@@ -542,9 +495,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C42',
     name: '[C42] Chocolate Cake',
-    desc: '',
+    desc: 'Deliciously moist and creamy chocolate cake with a silky finish. Best for birthdays!',
     sizes: [
       { label: '1 pound', price: 280, discount: 20 },
       { label: '2 pounds', price: 550, discount: 50 },
@@ -554,9 +506,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C43',
     name: '[C43] Pine Apple',
-    desc: '',
+    desc: 'A tropical delight with juicy pineapple chunks and fluffy cream – light and refreshing.',
     sizes: [
       { label: '1 pound', price: 250, discount: 10 },
       { label: '2 pounds', price: 480, discount: 30 },
@@ -566,9 +517,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C44',
     name: '[C44] Chocolate Cake',
-    desc: '',
+    desc: 'Soft, rich and indulgent chocolate cake made for your sweet moments.',
     sizes: [
       { label: '1 pound', price: 260, discount: 10 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -578,9 +528,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C45',
     name: '[C45] Chocolate Cake',
-    desc: '',
+    desc: 'A melt-in-mouth chocolate dream topped with choco chips – perfect for all ages.',
     sizes: [
       { label: '1 pound', price: 260, discount: 10 },
       { label: '2 pounds', price: 500, discount: 30 },
@@ -590,9 +539,8 @@ const products = [
     category: 'Cake'
   },
   {
-    productId: 'C46',
     name: '[C46] Pine Apple',
-    desc: '',
+    desc: 'A fresh burst of pineapple with creamy layers – a fruity twist to your celebrations.',
     sizes: [
       { label: '1 pound', price: 250, discount: 20 },
       { label: '2 pounds', price: 480, discount: 50 },
@@ -601,12 +549,11 @@ const products = [
     img: 'img/cake/C46.jpg',
     category: 'Cake'
   },
-
+  
   // PIZZA
   {
-    productId: 'P01',
     name: '[P01] MARGARITA PIZZA',
-    desc: 'Plain Cheese',
+    desc: 'Classic cheesy goodness on a thin crust – simplicity at its best.',
     sizes: [
       { label: 'Small - 6 inch', price: 60, discount: 0 },
       { label: 'Medium - 7 inch', price: 90 },
@@ -617,9 +564,8 @@ const products = [
     category: 'Pizza'
   },
   {
-    productId: 'P02',
     name: '[P02] SIMPLY VEG PIZZA',
-    desc: 'Onion, Capsicum/Tomato, Cheese',
+    desc: 'Topped with fresh onion, capsicum, tomato, and lots of cheese – simple yet tasty.',
     sizes: [
       { label: 'Small - 6 inch', price: 80, discount: 0 },
       { label: 'Medium - 7 inch', price: 110 },
@@ -630,9 +576,8 @@ const products = [
     category: 'Pizza'
   },
   {
-    productId: 'P03',
     name: '[P03] GOLDEN CORN PIZZA',
-    desc: 'Corn, Cheese',
+    desc: 'Sweet corn over a bed of gooey cheese and tangy sauce – perfect for corn lovers.',
     sizes: [
       { label: 'Small - 6 inch', price: 80, discount: 0 },
       { label: 'Medium - 7 inch', price: 110 },
@@ -643,9 +588,8 @@ const products = [
     category: 'Pizza'
   },
   {
-    productId: 'P04',
     name: '[P04] VEGGIE DELIGHT PIZZA',
-    desc: 'Onion, Tomato, Corn, Cheese',
+    desc: 'Colorful and crunchy mix of onion, tomato, corn, and cheese on every bite.',
     sizes: [
       { label: 'Small - 6 inch', price: 90, discount: 0 },
       { label: 'Medium - 7 inch', price: 120 },
@@ -656,9 +600,8 @@ const products = [
     category: 'Pizza'
   },
   {
-    productId: 'P05',
     name: '[P05] FARMHOUSE PIZZA',
-    desc: 'Onion, Capsicum, Paneer/Mushroom, Cheese',
+    desc: 'Loaded with paneer or mushroom, onion, capsicum, and cheese – full farmhouse flavor.',
     sizes: [
       { label: 'Small - 6 inch', price: 100, discount: 0 },
       { label: 'Medium - 7 inch', price: 140 },
@@ -669,9 +612,8 @@ const products = [
     category: 'Pizza'
   },
   {
-    productId: 'P06',
     name: '[P06] EVERYTHING ON IT PIZZA',
-    desc: 'Onion, Capsicum, Corn, Paneer, Mushroom, Olive, Cheese',
+    desc: 'The ultimate pizza with all toppings – onion, capsicum, corn, paneer, mushroom, olive & cheese.',
     sizes: [
       { label: 'Small - 6 inch', price: 120, discount: 0 },
       { label: 'Medium - 7 inch', price: 160 },
@@ -681,218 +623,213 @@ const products = [
     img: 'img/pizza/P06.jpg',
     category: 'Pizza'
   },
-
+  
   // BURGER
   {
-    productId: 'B01',
     name: '[B01] SIMPLE VEG BURGER',
-    desc: '',
+    desc: 'Crispy aloo patty with fresh veggies and creamy mayo – a true street-style delight.',
     price: 20,
     img: 'img/burger/B01.jpg',
     category: 'Burger'
   },
   {
-    productId: 'B02',
     name: '[B02] CHEESE PANEER BURGER',
-    desc: '',
+    desc: 'Chunky paneer tikki with melted cheese – juicy, tasty, and fulfilling.',
     price: 30,
     img: 'img/burger/B02.jpg',
     category: 'Burger'
   },
-
+  
   // SANDWICH
   {
-    productId: 'S01',
     name: '[S01] VEG SANDWICH',
-    desc: '',
+    desc: 'Fresh and crunchy veggies layered between buttered bread slices – simple and tasty.',
     price: 20,
     img: 'img/sandwich/S01.jpg',
     category: 'Sandwich'
   },
   {
-    productId: 'S02',
     name: '[S02] VEG GRILLED SANDWICH',
-    desc: '',
+    desc: 'Toasted sandwich with veggies, cheese, and spices – hot, crispy, and flavorful.',
     price: 25,
     img: 'img/sandwich/S02.jpg',
     category: 'Sandwich'
   },
-
-  // BEVERAGE
   {
-    productId: 'D01',
     name: '[D01] Coco Cola',
-    desc: '',
+    desc: 'Classic Coca-Cola taste to refresh your mood. Available in 750ml and 2L.',
     sizes: [
-      { label: '750 ml', price: 40, discount: 0 },
-      { label: '2000 ml', price: 99, discount: 0 }
+      { label: '750 ml', price: 40, discount:0 },
+      { label: '2000 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D01.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D02',
     name: '[D02] Coco Cola Can',
-    desc: '300 ml',
+    desc: 'Chilled 300ml Coca-Cola can – perfect for on-the-go refreshment!',
     price: 40,
     img: 'img/beverage/D02.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D03',
     name: '[D03] Sprite',
-    desc: '',
+    desc: 'Lemon-lime flavored Sprite – fizzy and refreshing. Multiple sizes available.',
     sizes: [
-      { label: '250 ml', price: 20, discount: 0 },
-      { label: '750 ml', price: 40, discount: 0 },
+      { label: '250 ml', price: 20, discount:0 },
+      { label: '750 ml', price: 40, discount:0 },
       { label: '1000 ml', price: 50 },
-      { label: '2000 ml', price: 99, discount: 0 }
+      { label: '2000 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D03.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D04',
     name: '[D04] Sprite Can',
-    desc: '300 ml',
+    desc: '300ml fizzy Sprite – zesty lemon freshness in a can!',
     price: 40,
     img: 'img/beverage/D04.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D05',
     name: '[D05] Pepsi',
-    desc: '',
+    desc: 'Bold Pepsi flavor to quench your thirst. Available in 750ml and 2.25L.',
     sizes: [
-      { label: '750 ml', price: 40, discount: 0 },
-      { label: '2250 ml', price: 99, discount: 0 }
+      { label: '750 ml', price: 40, discount:0 },
+      { label: '2250 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D05.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D06',
     name: '[D06] Thums Up',
-    desc: '',
+    desc: 'Strong cola punch with Thums Up. Ideal for spicy snacks.',
     sizes: [
-      { label: '250 ml', price: 20, discount: 0 },
-      { label: '750 ml', price: 40, discount: 0 },
-      { label: '1000 ml', price: 50, discount: 0 },
-      { label: '2000 ml', price: 99, discount: 0 }
+      { label: '250 ml', price: 20, discount:0 },
+      { label: '750 ml', price: 40, discount:0 },
+      { label: '1000 ml', price: 50, discount:0 },
+      { label: '2000 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D06.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D07',
     name: '[D07] Dev',
-    desc: '',
+    desc: 'Chilled local favorite drink to cool you instantly.',
     sizes: [
-      { label: '250 ml', price: 20, discount: 0 },
-      { label: '750 ml', price: 40, discount: 0 },
-      { label: '2250 ml', price: 99, discount: 0 }
+      { label: '250 ml', price: 20, discount:0 },
+      { label: '750 ml', price: 40, discount:0 },
+      { label: '2250 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D07.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D08',
     name: '[D08] Mazza',
-    desc: '',
+    desc: 'Mango drink with rich pulp – enjoy the taste of real mango.',
     sizes: [
-      { label: '600 ml', price: 40, discount: 0 },
-      { label: '1000 ml', price: 60, discount: 0 },
-      { label: '1750 ml', price: 99, discount: 0 }
+      { label: '600 ml', price: 40, discount:0 },
+      { label: '1000 ml', price: 60, discount:0 },
+      { label: '1750 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D08.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D09',
     name: '[D09] Frooti',
-    desc: '',
+    desc: 'India’s beloved mango drink – Frooti, always fresh & fruity!',
     sizes: [
-      { label: '750 ml', price: 40, discount: 0 },
-      { label: '1250 ml', price: 75, discount: 0 }
+      { label: '750 ml', price: 40, discount:0 },
+      { label: '1250 ml', price: 75, discount:0 }
     ],
     img: 'img/beverage/D09.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D10',
     name: '[D10] Slice',
-    desc: '',
+    desc: 'Thick and juicy mango Slice to satisfy your fruit cravings.',
     sizes: [
-      { label: '1250 ml', price: 75, discount: 0 },
-      { label: '1750 ml', price: 99, discount: 0 }
+      { label: '1250 ml', price: 75, discount:0 },
+      { label: '1750 ml', price: 99, discount:0 }
     ],
     img: 'img/beverage/D10.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D11',
     name: '[D11] Mazza',
-    desc: '',
+    desc: 'Small-sized Mazza (₹10) for a quick mango treat.',
     price: 10,
     img: 'img/beverage/D11.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D12',
     name: '[D12] Frooti',
-    desc: '',
+    desc: 'Pocket-size Frooti for instant mango joy – just ₹10.',
     price: 10,
     img: 'img/beverage/D12.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D13',
     name: '[D13] Red Bull',
-    desc: '250 ml',
+    desc: 'Premium energy drink (250ml) – gives you wings!',
     price: 125,
     img: 'img/beverage/D13.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D14',
     name: '[D14] Britannia Cow Milk',
-    desc: '180 ml Vanilla',
+    desc: '180ml Vanilla flavored nourishing milk – tasty and healthy.',
     price: 40,
     img: 'img/beverage/D14.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D15',
     name: '[D15] Britannia Cow Milk',
-    desc: '180 ml Choclate',
+    desc: '180ml Chocolate flavored milk – rich and satisfying treat.',
     price: 40,
     img: 'img/beverage/D15.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D16',
     name: '[D16] Britannia Cow Milk',
-    desc: '180 ml Strawberry',
+    desc: '180ml Strawberry milk – a sweet delight kids love!',
     price: 40,
     img: 'img/beverage/D16.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D17',
     name: '[D17] Britannia Lassi',
-    desc: '180 ml',
+    desc: 'Classic chilled lassi (180ml) – smooth and refreshing.',
     price: 20,
     img: 'img/beverage/D17.jpg',
     category: 'Beverage'
   },
+  
   {
-    productId: 'D18',
-    name: '[D18] Sting',
-    desc: '250 ml',
+    name: '[D17] Sting',
+    desc: 'Energy drink (250ml) packed with bold flavor and power.',
     price: 20,
     img: 'img/beverage/D18.jpg',
     category: 'Beverage'
   }
+    
+  
+];
 
-  ];
   

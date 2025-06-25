@@ -1,0 +1,19 @@
+.location {
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .location a strong {
+    font-weight: 700;
+    color: #b41c1c;
+    background-color: #f0e2a8;
+    padding: 0.2rem 0.5rem; /* Smaller padding */
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 0.6rem;
+  }
+  
+  .location a:hover {
+    text-decoration: underline;
+  }
