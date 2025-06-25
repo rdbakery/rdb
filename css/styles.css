@@ -11,7 +11,7 @@ body {
   color: #5c3d2e;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin: 0.2rem 0 0.5rem;
 }
 
@@ -43,13 +43,9 @@ main {
   padding: 0.4rem;
   border-radius: 6px;
   margin-bottom: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
-.original-price {
-  text-decoration: line-through;
-  color: #888;
-}
 
 .product-image-wrapper {
   position: relative;
@@ -84,7 +80,7 @@ main {
   transition: all 0.3s ease; /* from #bakery-name */
 }
 .fssai-subtext {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   margin-top: 0.5rem;
   color: #444;
@@ -106,11 +102,11 @@ main {
   width: fit-content;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 
 .highlight-contact {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #5c3d2e;
   margin: 0.15rem auto;

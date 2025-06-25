@@ -32,13 +32,13 @@
 }
 
 .product h3 {
-  font-size: 0.65rem;
+  font-size: 0.9rem;
   margin: 0.5rem 0 0.2rem;
   font-weight: bold;
 }
 
 .product p {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   margin: 0 0 0.5rem;
   color: #555;
 }
@@ -46,7 +46,7 @@
 .product strong {
   color: #222;
   margin-bottom: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .product button {
@@ -58,7 +58,7 @@
   cursor: pointer;
   margin-top: auto;
   transition: background-color 0.3s;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .product button:hover {
@@ -66,7 +66,7 @@
 }
 
 .product em {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #6b4f3b;
 }
 
@@ -74,3 +74,67 @@
   position: relative;
   display: inline-block;
 }
+
+
+.original-price {
+  text-decoration: line-through;
+  color: #c62828; /* Deep red */
+  background-color: #ffe0e0; /* Light pink background */
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.size-price-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.size-price-wrapper select {
+  width: auto;
+  max-width: 60%;
+  min-width: 80px;
+}
+
+.size-price-wrapper strong {
+  white-space: nowrap;
+  font-size: 1rem;
+  margin-left: 10px;
+  color: #2e7d32;
+  background-color: #e0f7fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.size-price-wrapper .original-price {
+  color: red;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+.price-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.price-center strong {
+  white-space: nowrap;
+  font-size: 1rem;
+  color: #2e7d32;
+  background-color: #e0f7fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.price-center .original-price {
+  color: red;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
