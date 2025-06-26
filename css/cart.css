@@ -2,7 +2,7 @@
   color: green;
   font-weight: bold;
   margin-top: 5px;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .cart-item-with-image {
@@ -74,7 +74,7 @@
   padding: 0.3rem 0;
   border-bottom: 1px solid #f7a072;
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 #cart-icon {
