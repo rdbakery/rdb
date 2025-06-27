@@ -51,3 +51,31 @@ clearCartBtn.addEventListener('click', () => {
     }
   });
   
+
+  function selectCategory(category) {
+    selectedCategory = category;
+  
+    // Update active button styling
+    document.querySelectorAll('#category-menu button').forEach(b => b.classList.remove('active'));
+    const targetBtn = document.querySelector(`#category-menu button[data-category="${category}"]`);
+    if (targetBtn) {
+      targetBtn.classList.add('active');
+    }
+  
+    // Render products
+    renderProducts(searchInput.value, selectedCategory);
+  
+    // Restore bulk notes after rendering
+    setTimeout(() => {
+      Object.keys(cart).forEach(key => {
+        const [name, size] = key.split('|');
+        updateBulkNote(name);
+      });
+    }, 0);
+  }
+
+
+// Auto-select 'All' category after everything is ready
+window.addEventListener('load', () => {
+  selectCategory(''); // Select "All" category on load
+});
