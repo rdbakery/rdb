@@ -1,7 +1,33 @@
-//Cart management (add, remove, quantity, update UI)
+// Cart management (add, remove, quantity, update UI)
 // cart.js
 
 
+function loadCartFromLocalStorage() {
+  const storedCart = localStorage.getItem('bakeryCart');
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+    updateCart();
+
+    // Update UI buttons
+    Object.keys(cart).forEach(key => {
+      const [name, size] = key.split('|');
+      const actionDiv = document.getElementById(`action-${name}`);
+      if (actionDiv) {
+        actionDiv.innerHTML = `
+          <div class="qty-controls">
+            <button class="qty-btn" onclick='changeQty("${key}", -1)'>−</button>
+            <span>${cart[key].quantity}</span>
+            <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
+          </div>`;
+      }
+    });
+  }
+}
+
+// Save cart to local storage
+function saveCartToLocalStorage() {
+  localStorage.setItem('bakeryCart', JSON.stringify(cart));
+}
 
 function addToCart(name) {
   const product = products.find(p => p.name === name);
@@ -25,6 +51,7 @@ function addToCart(name) {
   }
 
   updateCart();
+  saveCartToLocalStorage(); // Save cart after adding
 
   const actionDiv = document.getElementById(`action-${name}`);
   actionDiv.innerHTML = `
@@ -45,6 +72,7 @@ function changeQty(key, delta) {
     }
 
     updateCart();
+    saveCartToLocalStorage(); // Save cart after quantity change
 
     const [name, size] = key.split('|');
     const actionDiv = document.getElementById(`action-${name}`);
@@ -61,3 +89,4 @@ function changeQty(key, delta) {
     updateBulkNote(name);
   }
 }
+

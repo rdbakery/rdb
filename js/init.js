@@ -1,6 +1,10 @@
-//Initial setup and DOM ready functions
+// Initial setup and DOM ready functions
 // init.js
 
+// Load cart from local storage first
+loadCartFromLocalStorage();
+
+// Render products and update cart UI
 renderProducts();
 updateCart();
 
