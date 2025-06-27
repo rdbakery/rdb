@@ -1,5 +1,5 @@
 .bulk-offer-message{
-  font-size: 10px;
+  font-size: 15px;
   color: #0057d8;
   font-weight: 500;
   background: orange;
@@ -51,12 +51,11 @@
 }
 
 .bulk-discount-note {
-  font-size: 0.85em;
+  font-size: 0.9em;
   font-style: italic;
   color: green;
   font-weight: bold;
   margin-top: 4px;
-  font-size: 1em;
 }
 
 

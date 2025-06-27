@@ -8,14 +8,14 @@ function getBulkOfferMessage(productName) {
     const sizes = config.eligibleSizes.join(' or ');
     return `
       <div class="bulk-offer-message">
-        🎉 <strong>Special Offer:</strong> Buy any <strong>${config.threshold}</strong> 
+        🎉 <strong>Special Offer:</strong> Buy <strong>${config.threshold}</strong> 
         (<em>${sizes}</em>) and get <strong>${config.discountRate}% OFF</strong>!
       </div>`;
   }
   
   const offers = Object.entries(BULK_DISCOUNT_PRODUCTS).map(([productName, config]) => {
     const sizesText = config.eligibleSizes.join(' or ');
-    return `🎉 Buy ${config.threshold} (${sizesText}) of ${productName} and get ${config.discountRate}% OFF!`;
+    return `🎉 Buy ${config.threshold} (${sizesText}) ${productName} and get ${config.discountRate}% OFF!`;
   });
   
   const offerRotator = document.getElementById('offer-rotator');
