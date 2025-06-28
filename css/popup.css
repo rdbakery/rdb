@@ -14,79 +14,97 @@
     animation: fadeIn 0.5s ease-in-out;
     padding: 1rem;
     box-sizing: border-box;
-  }
-  
-  /* Popup content */
-  .popup-content {
+}
+
+/* Popup content */
+.popup-content {
     background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    max-width: 400px;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
     width: 100%;
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.5s ease-in-out;
     box-sizing: border-box;
-  }
-  
-  .popup-content h2 {
+    transition: transform 0.3s ease;
+}
+
+.popup-content h2 {
     color: #c0392b;
     margin-bottom: 0.8rem;
-    font-size: 1.5rem;
-  }
-  
-  .popup-content p {
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-    line-height: 1.5;
-  }
-  
-  #popup-close-btn {
-    padding: 0.6rem 1.5rem;
+    font-size: 1.6rem;
+}
+
+.popup-content p {
     font-size: 1rem;
-    background-color: #27ae60;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+#popup-close-btn {
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #popup-close-btn:hover {
-    background-color: #219150;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#popup-close-btn:hover {
+    background: linear-gradient(90deg, #219150, #28b463);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-  
-  @keyframes slideUp {
+}
+
+@keyframes slideUp {
     from { transform: translateY(30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 480px) {
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
     .popup-content {
-      padding: 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
+        padding: 1rem;
+        border-radius: 8px;
+        max-width: 90%;
     }
-  
+
     .popup-content h2 {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
-  
+
     .popup-content p {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     #popup-close-btn {
-      padding: 0.5rem 1.2rem;
-      font-size: 0.95rem;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.95rem;
     }
-  }
-  
+}
+
+.highlight-bakery {
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(90deg, #f12711, #f5af19);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
