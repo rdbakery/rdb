@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/location.css" />
   <link rel="stylesheet" href="css/order.css" />
   <link rel="icon" href="img/cake/C01.jpg" type="image/png">
+  <link rel="stylesheet" href="css/popup.css">
 
   <!-- Structured Data (JSON-LD for LocalBusiness) -->
   <script type="application/ld+json">
@@ -156,7 +157,7 @@
   <script src="js/product-render.js"></script>
   <script src="js/events.js"></script>
   <script src="js/init.js"></script>
-
+  <script src="js/popup.js"></script>
   
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG4QLYGHGV"></script>
@@ -168,5 +169,18 @@
 
   gtag('config', 'G-HG4QLYGHGV');
 </script>
+
+<div id="thank-you-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h2>🎉 धन्यवाद!</h2>
+    <p>
+      Royal Delight Bakery से खरीदारी के लिए आपका <strong>दिल से धन्यवाद!</strong><br>
+      हम हर ऑर्डर में लाते हैं <strong>स्वाद, भरोसा</strong> और <strong>बेहतरीन गुणवत्ता</strong> - जो बनाए हर पल खास। 🎁🍰
+    </p>
+    <button id="popup-close-btn">🛍️ खरीदारी शुरू करें</button>
+  </div>
+</div>
+
+
 </body>
 </html>
