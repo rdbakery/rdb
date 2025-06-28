@@ -2,20 +2,25 @@
 // events.js
 
 clearCartBtn.addEventListener('click', () => {
-    document.querySelectorAll('.bulk-discount-note, .bulk-discount-message').forEach(el => el.remove());
-    cart = {};
-    updateCart();
+  document.querySelectorAll('.bulk-discount-note, .bulk-discount-message').forEach(el => el.remove());
   
-    document.querySelectorAll('.product').forEach(productEl => {
-      const name = productEl.querySelector('h3').innerText;
-      const select = productEl.querySelector('select');
-      const selectedSize = select ? select.value : '';
-      const key = selectedSize ? `${name}|${selectedSize}` : name;
-  
-      const actionDiv = document.getElementById(`action-${name}`);
-      actionDiv.innerHTML = `<button onclick='addToCart("${name}")'>Add to Cart</button>`;
-    });
+  cart = {};
+  updateCart();
+
+  // Clear local storage
+  localStorage.removeItem('bakeryCart');
+
+  document.querySelectorAll('.product').forEach(productEl => {
+    const name = productEl.querySelector('h3').innerText;
+    const select = productEl.querySelector('select');
+    const selectedSize = select ? select.value : '';
+    const key = selectedSize ? `${name}|${selectedSize}` : name;
+
+    const actionDiv = document.getElementById(`action-${name}`);
+    actionDiv.innerHTML = `<button onclick='addToCart("${name}")'>Add to Cart</button>`;
   });
+});
+
   
   cartIcon.addEventListener('click', () => {
     cartBox.style.display = 'block';
