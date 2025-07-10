@@ -453,9 +453,9 @@ const products = [
     name: '[C38] Dark Chocolate',
     desc: 'Perfect for choco-lovers – smooth, bold and rich in flavor.',
     sizes: [
-      { label: '1 pound', price: 260, discount: 10 },
-      { label: '2 pounds', price: 500, discount: 30 },
-      { label: '3 pounds', price: 740, discount: 60 }
+      { label: '1 pound', price: 280, discount: 10 },
+      { label: '2 pounds', price: 550, discount: 30 },
+      { label: '3 pounds', price: 820, discount: 60 }
     ],
     img: 'img/cake/C38.jpg',
     category: 'Cake'
