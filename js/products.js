@@ -562,6 +562,18 @@ const products = [
     category: 'Cake'
   },
   
+      {
+    name: '[C48] Christmas Cake',
+    desc: 'A joyful Santa cake with soft layers and creamy frosting—perfect for festive celebrations. 🎅',
+    sizes: [
+      { label: '1 pound', price: 260, discount: 20 },
+      { label: '2 pounds', price: 520, discount: 60 },
+      { label: '3 pounds', price: 780, discount: 100 }
+    ],
+    img: 'img/cake/C48.jpg',
+    category: 'Cake'
+  },
+  
   
   // PIZZA
   {
