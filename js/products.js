@@ -10,7 +10,7 @@ const BULK_DISCOUNT_PRODUCTS = {
   },
   '[C02] Doll Cake': {
     eligibleSizes: ['3 pounds'],
-    discountRate: 12,
+    discountRate: 10,
     threshold: 2
   },
   '[P05] FARMHOUSE PIZZA': {
@@ -119,9 +119,9 @@ const products = [
     name: '[C09] 3 Tier Chocolate Cake',
     desc: 'Celebrate big moments with this rich and stunning 3-tier chocolate masterpiece!',
     sizes: [
-      { label: '3 pound', price: 780, discount:80 },
-      { label: '4 pounds', price: 1040, discount:120 },
-      { label: '5 pounds', price: 1250, discount:200 }
+      { label: '3 pound', price: 900, discount:50 },
+      { label: '4 pounds', price: 1200, discount:100 },
+      { label: '5 pounds', price: 1500, discount:200 }
     ],
     img: 'img/cake/C09.jpg',
     category: 'Cake'
@@ -433,7 +433,7 @@ const products = [
       { label: '2 pounds', price: 550, discount: 50 },
       { label: '3 pounds', price: 820, discount: 80 }
     ],
-    img: 'img/cake/C34.jpg',
+    img: 'img/cake/C36.jpg',
     category: 'Cake'
   },
   
@@ -549,6 +549,19 @@ const products = [
     img: 'img/cake/C46.jpg',
     category: 'Cake'
   },
+
+    {
+    name: '[C47] Car Cake',
+    desc: 'A fun car-shaped cake with soft layers and creamy frosting—perfect for birthdays and theme parties.',
+    sizes: [
+      { label: '2 pounds', price: 600, discount: 20 },
+      { label: '3 pounds', price: 850, discount: 50 },
+      { label: '5 pounds', price: 1200, discount: 70 }
+    ],
+    img: 'img/cake/C47.jpg',
+    category: 'Cake'
+  },
+  
   
   // PIZZA
   {
