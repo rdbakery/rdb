@@ -19,6 +19,10 @@ function isBulkDiscountApplicable(item) {
     const size = select ? select.value : '';
     const key = size ? `${productName}|${size}` : productName;
     const container = document.getElementById(`bulk-note-${productName}`);
+
+    if (!container) {
+        return;
+    }
     container.innerHTML = '';
   
     const item = cart[key];

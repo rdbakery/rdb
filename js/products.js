@@ -381,9 +381,9 @@ const products = [
     name: '[C32] Rasmalai Cake',
     desc: 'A festive rasmalai dessert cake that melts in your mouth.',
     sizes: [
-      { label: '1 pound', price: 350, discount: 30 },
-      { label: '2 pounds', price: 660, discount: 50 },
-      { label: '3 pounds', price: 950, discount: 100 }
+      { label: '1 pound', price: 400, discount: 30 },
+      { label: '2 pounds', price: 750, discount: 50 },
+      { label: '3 pounds', price: 100, discount: 100 }
     ],
     img: 'img/cake/C32.jpg',
     category: 'Cake'
@@ -868,7 +868,18 @@ const products = [
     {
     name: '[DI02] Number Candle',
     desc: 'A Number candle that adds instant shine and excitement to any celebration. ✨🎂',
-    price: 20,
+        sizes: [
+      { label: 'Number 0', price: 20, discount:0 },
+      { label: 'Number 1', price: 20, discount:0 },
+      { label: 'Number 2', price: 20, discount:0 },
+      { label: 'Number 3', price: 20, discount:0 },
+      { label: 'Number 4', price: 20, discount:0 },
+      { label: 'Number 5', price: 20, discount:0 },
+      { label: 'Number 6', price: 20, discount:0 },
+      { label: 'Number 7', price: 20, discount:0 },
+      { label: 'Number 8', price: 20, discount:0 },
+      { label: 'Number 9', price: 20, discount:0 }
+    ],
     img: 'img/decorationitems/DI02.jpg',
     category: 'Decoration'
   }

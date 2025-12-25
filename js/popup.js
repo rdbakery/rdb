@@ -25,4 +25,4 @@ window.addEventListener('load', function () {
     });
   });
 
-  document.getElementById('thank-you-popup').style.display = 'flex';
+ // document.getElementById('thank-you-popup').style.display = 'flex';
