@@ -62,16 +62,19 @@
 .go-to-menu-btn {
   display: none;
   position: fixed;
-  bottom: 1rem;
+
+  top: calc(1rem + 48px); /* BELOW cart icon */
   right: 1rem;
-  z-index: 1000;
-  background-color: #28a745;
+
+  z-index: 999;
+  background-color: #475569;
   color: white;
   font-weight: bold;
-  padding: 0.5em 1em; /* reduced size for mobile */
+
+  padding: 0.45em 0.9em;
   border: none;
   border-radius: 0.5em;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
-  font-size: 0.9rem;
+
+  font-size: 0.85rem;
 }
