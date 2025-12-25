@@ -852,9 +852,29 @@ const products = [
     price: 20,
     img: 'img/beverage/D18.jpg',
     category: 'Beverage'
+  },
+  {
+    name: '[DI01] Sparkle Candle',
+    desc: 'A sparkle candle that adds instant shine and excitement to any celebration. ✨🎂',
+    sizes: [
+      { label: 'Small', price: 20, discount:0 },
+      { label: 'Medium', price: 30, discount:0 },
+      { label: 'Large', price: 40, discount:0 }
+    ],
+    img: 'img/decorationitems/DI01.jpg',
+    category: 'Decoration'
+  },
+
+    {
+    name: '[DI02] Number Candle',
+    desc: 'A Number candle that adds instant shine and excitement to any celebration. ✨🎂',
+    price: 20,
+    img: 'img/decorationitems/DI02.jpg',
+    category: 'Decoration'
   }
-    
   
+
+   
 ];
 
   
