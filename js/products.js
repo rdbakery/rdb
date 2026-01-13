@@ -669,14 +669,14 @@ const products = [
   {
     name: '[S01] VEG SANDWICH',
     desc: 'Fresh and crunchy veggies layered between buttered bread slices – simple and tasty.',
-    price: 20,
+    price: 25,
     img: 'img/sandwich/S01.jpg',
     category: 'Sandwich'
   },
   {
     name: '[S02] VEG GRILLED SANDWICH',
     desc: 'Toasted sandwich with veggies, cheese, and spices – hot, crispy, and flavorful.',
-    price: 25,
+    price: 30,
     img: 'img/sandwich/S02.jpg',
     category: 'Sandwich'
   },
