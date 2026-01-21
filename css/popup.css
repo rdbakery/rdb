@@ -108,35 +108,17 @@
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
-
-
-/* ===== Review Popup Content ===== */
-.review-box {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.review-qr {
-  width: 160px;
-  max-width: 70%;
-  margin: 10px auto;
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.review-steps {
+.review-manager {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #4b2e20;
 }
 
-.review-link {
+.review-manager .review-link {
   color: #d97706;
-  font-weight: 700;
   text-decoration: none;
 }
 
-.review-link:hover {
+.review-manager .review-link:hover {
   text-decoration: underline;
 }
