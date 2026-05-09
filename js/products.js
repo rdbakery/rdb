@@ -580,10 +580,10 @@ const products = [
     name: '[P01] MARGARITA PIZZA',
     desc: 'Classic cheesy goodness on a thin crust – simplicity at its best.',
     sizes: [
-      { label: 'Small - 6 inch', price: 60, discount: 0 },
-      { label: 'Medium - 7 inch', price: 90 },
-      { label: 'Large - 8 inch', price: 130, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 180, discount: 0 }
+      { label: 'Small - 6 inch', price: 70, discount: 0 },
+      { label: 'Medium - 7 inch', price: 100 },
+      { label: 'Large - 8 inch', price: 150, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 220, discount: 0 }
     ],
     img: 'img/pizza/P01.jpg',
     category: 'Pizza'
@@ -592,10 +592,10 @@ const products = [
     name: '[P02] SIMPLY VEG PIZZA',
     desc: 'Topped with fresh onion, capsicum, tomato, and lots of cheese – simple yet tasty.',
     sizes: [
-      { label: 'Small - 6 inch', price: 80, discount: 0 },
-      { label: 'Medium - 7 inch', price: 110 },
-      { label: 'Large - 8 inch', price: 150, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 200, discount: 0 }
+      { label: 'Small - 6 inch', price: 90, discount: 0 },
+      { label: 'Medium - 7 inch', price: 120 },
+      { label: 'Large - 8 inch', price: 170, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 220, discount: 0 }
     ],
     img: 'img/pizza/P02.jpg',
     category: 'Pizza'
@@ -604,10 +604,10 @@ const products = [
     name: '[P03] GOLDEN CORN PIZZA',
     desc: 'Sweet corn over a bed of gooey cheese and tangy sauce – perfect for corn lovers.',
     sizes: [
-      { label: 'Small - 6 inch', price: 80, discount: 0 },
-      { label: 'Medium - 7 inch', price: 110 },
-      { label: 'Large - 8 inch', price: 150, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 200, discount: 0 }
+      { label: 'Small - 6 inch', price: 90, discount: 0 },
+      { label: 'Medium - 7 inch', price: 120 },
+      { label: 'Large - 8 inch', price: 170, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 220, discount: 0 }
     ],
     img: 'img/pizza/P03.jpg',
     category: 'Pizza'
@@ -616,10 +616,10 @@ const products = [
     name: '[P04] VEGGIE DELIGHT PIZZA',
     desc: 'Colorful and crunchy mix of onion, tomato, corn, and cheese on every bite.',
     sizes: [
-      { label: 'Small - 6 inch', price: 90, discount: 0 },
-      { label: 'Medium - 7 inch', price: 120 },
-      { label: 'Large - 8 inch', price: 160, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 220, discount: 0 }
+      { label: 'Small - 6 inch', price: 100, discount: 0 },
+      { label: 'Medium - 7 inch', price: 130 },
+      { label: 'Large - 8 inch', price: 180, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 240, discount: 0 }
     ],
     img: 'img/pizza/P04.jpg',
     category: 'Pizza'
@@ -628,10 +628,10 @@ const products = [
     name: '[P05] FARMHOUSE PIZZA',
     desc: 'Loaded with paneer or mushroom, onion, capsicum, and cheese – full farmhouse flavor.',
     sizes: [
-      { label: 'Small - 6 inch', price: 100, discount: 0 },
-      { label: 'Medium - 7 inch', price: 140 },
-      { label: 'Large - 8 inch', price: 190, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 250, discount: 0 }
+      { label: 'Small - 6 inch', price: 110, discount: 0 },
+      { label: 'Medium - 7 inch', price: 150 },
+      { label: 'Large - 8 inch', price: 210, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 270, discount: 0 }
     ],
     img: 'img/pizza/P05.jpg',
     category: 'Pizza'
@@ -640,10 +640,10 @@ const products = [
     name: '[P06] EVERYTHING ON IT PIZZA',
     desc: 'The ultimate pizza with all toppings – onion, capsicum, corn, paneer, mushroom, olive & cheese.',
     sizes: [
-      { label: 'Small - 6 inch', price: 120, discount: 0 },
-      { label: 'Medium - 7 inch', price: 160 },
-      { label: 'Large - 8 inch', price: 220, discount: 0 },
-      { label: 'Extra Large - 9 inch', price: 280, discount: 0 }
+      { label: 'Small - 6 inch', price: 130, discount: 0 },
+      { label: 'Medium - 7 inch', price: 170 },
+      { label: 'Large - 8 inch', price: 240, discount: 0 },
+      { label: 'Extra Large - 9 inch', price: 300, discount: 0 }
     ],
     img: 'img/pizza/P06.jpg',
     category: 'Pizza'
