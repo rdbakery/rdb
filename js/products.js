@@ -649,6 +649,15 @@ const products = [
     category: 'Pizza'
   },
   
+  //Patties
+  {
+    name: '[PT01] Aloo Patties',
+    desc: 'Crispy aloo patty with fresh veggies and creamy mayo – a true street-style delight.',
+    price: 20,
+    img: 'img/patties/pt01.png',
+    category: 'Patties'
+  },
+
   // BURGER
   {
     name: '[B01] SIMPLE VEG BURGER',
@@ -680,6 +689,7 @@ const products = [
     img: 'img/sandwich/S02.jpg',
     category: 'Sandwich'
   },
+  //Drink
   {
     name: '[D01] Coco Cola',
     desc: 'Classic Coca-Cola taste to refresh your mood. Available in 750ml and 2L.',
