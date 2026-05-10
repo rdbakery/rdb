@@ -183,12 +183,10 @@ main {
 }
 
 .celebration-particle {
-  position: absolute;
+  position: fixed;
   font-size: 1.5rem;
   pointer-events: none;
-  top: 50%;
-  left: 50%;
-  z-index: 1000;
+  z-index: 10000;
   animation: particleExplode 2s ease-out forwards;
   --tx: calc((random() - 0.5) * 200px);
   --ty: calc((random() - 0.5) * 200px);
@@ -208,23 +206,18 @@ main {
 .celebration-particle:nth-child(12) { --tx: -50px; --ty: -150px; }
 
 .celebration-flower {
-  position: absolute;
+  position: fixed;
   font-size: 1.8rem;
   pointer-events: none;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
+  z-index: 9999;
   animation: flowerFall 2.5s ease-in forwards;
 }
 
 .celebration-balloon {
-  position: absolute;
+  position: fixed;
   font-size: 2rem;
   pointer-events: none;
-  bottom: -30px;
-  left: 50%;
-  z-index: 998;
+  z-index: 9999;
   animation: balloonFloat 3s ease-out forwards;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }

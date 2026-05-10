@@ -4,61 +4,67 @@
 // Celebration effects for product card
 function createCelebrationEffect(productElement) {
   if (!productElement) return;
-  
+
+  const rect = productElement.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+
   // Create confetti/particles
   for (let i = 0; i < 12; i++) {
     const particle = document.createElement('div');
     particle.className = 'celebration-particle';
     particle.innerHTML = ['🎉', '🎊', '🎈', '✨', '💫', '⭐'][Math.floor(Math.random() * 6)];
-    
-    const xPos = Math.random() * 100;
+
     const delay = Math.random() * 0.3;
     const duration = 2 + Math.random() * 0.5;
-    
-    particle.style.left = xPos + '%';
-    particle.style.animationDelay = delay + 's';
-    particle.style.animationDuration = duration + 's';
-    
-    productElement.appendChild(particle);
-    
+
+    particle.style.left = `${centerX}px`;
+    particle.style.top = `${centerY}px`;
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.animationDuration = `${duration}s`;
+
+    document.body.appendChild(particle);
+
     // Remove particle after animation
     setTimeout(() => particle.remove(), (duration + delay) * 1000);
   }
-  
+
   // Create floating flowers
   for (let i = 0; i < 5; i++) {
     const flower = document.createElement('div');
     flower.className = 'celebration-flower';
     flower.innerHTML = ['🌸', '🌺', '🌼', '🌻', '🌷'][i];
-    
-    const xPos = Math.random() * 100;
+
+    const xPos = rect.left + Math.random() * rect.width;
     const delay = Math.random() * 0.2;
-    
-    flower.style.left = xPos + '%';
-    flower.style.animationDelay = delay + 's';
-    
-    productElement.appendChild(flower);
-    
+
+    flower.style.left = `${xPos}px`;
+    flower.style.top = `${rect.top - 20}px`;
+    flower.style.animationDelay = `${delay}s`;
+
+    document.body.appendChild(flower);
+
     // Remove flower after animation
     setTimeout(() => flower.remove(), 2500);
   }
-  
+
   // Create floating balloons
   for (let i = 0; i < 4; i++) {
     const balloon = document.createElement('div');
     balloon.className = 'celebration-balloon';
     balloon.innerHTML = '🎈';
-    
-    const xPos = 20 + Math.random() * 60;
+
+    const xPos = rect.left + 20 + Math.random() * (rect.width - 40);
     const delay = Math.random() * 0.4;
     const duration = 3 + Math.random() * 0.5;
-    
-    balloon.style.left = xPos + '%';
-    balloon.style.animationDelay = delay + 's';
-    balloon.style.animationDuration = duration + 's';
-    
-    productElement.appendChild(balloon);
-    
+
+    balloon.style.left = `${xPos}px`;
+    balloon.style.top = `${rect.bottom - 20}px`;
+    balloon.style.animationDelay = `${delay}s`;
+    balloon.style.animationDuration = `${duration}s`;
+
+    document.body.appendChild(balloon);
+
     // Remove balloon after animation
     setTimeout(() => balloon.remove(), (duration + delay) * 1000);
   }
