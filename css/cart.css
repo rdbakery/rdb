@@ -81,27 +81,38 @@
   position: fixed;
   top: 1rem;
   right: 1rem;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  background: #3b82f6; /* Soothing blue */
+  font-size: 0.95rem;
+  padding: 0.55rem 1rem;
+  background: linear-gradient(135deg, #ffffff, darkgreen);
   color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.25);
   cursor: pointer;
   user-select: none;
-  z-index: 1000;
-  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10010;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 #cart-icon:hover {
-  background: #2563eb;
   transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(239, 68, 68, 0.32);
+  filter: brightness(1.05);
 }
 
 #cart-icon:active {
   transform: scale(0.97);
 }
 
+@media (max-width: 768px) {
+  #cart-icon {
+    top: 4.5rem;
+    right: 1rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.95rem;
+    z-index: 10020;
+  }
+}
 
 #cart-count {
   background: #ef476f;
