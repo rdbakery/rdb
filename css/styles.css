@@ -147,3 +147,99 @@ main {
     opacity: 1;
   }
 }
+
+/* Celebration Effects */
+@keyframes particleExplode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes flowerFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) translateX(40px);
+    opacity: 0;
+  }
+}
+
+@keyframes celebrationShake {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(1deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+.celebration-particle {
+  position: absolute;
+  font-size: 1.5rem;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  animation: particleExplode 2s ease-out forwards;
+  --tx: calc((random() - 0.5) * 200px);
+  --ty: calc((random() - 0.5) * 200px);
+}
+
+.celebration-particle:nth-child(1) { --tx: 100px; --ty: -80px; }
+.celebration-particle:nth-child(2) { --tx: -100px; --ty: -80px; }
+.celebration-particle:nth-child(3) { --tx: 100px; --ty: 80px; }
+.celebration-particle:nth-child(4) { --tx: -100px; --ty: 80px; }
+.celebration-particle:nth-child(5) { --tx: 120px; --ty: -30px; }
+.celebration-particle:nth-child(6) { --tx: -120px; --ty: -30px; }
+.celebration-particle:nth-child(7) { --tx: 80px; --ty: 120px; }
+.celebration-particle:nth-child(8) { --tx: -80px; --ty: 120px; }
+.celebration-particle:nth-child(9) { --tx: 140px; --ty: 50px; }
+.celebration-particle:nth-child(10) { --tx: -140px; --ty: 50px; }
+.celebration-particle:nth-child(11) { --tx: 50px; --ty: -150px; }
+.celebration-particle:nth-child(12) { --tx: -50px; --ty: -150px; }
+
+.celebration-flower {
+  position: absolute;
+  font-size: 1.8rem;
+  pointer-events: none;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  animation: flowerFall 2.5s ease-in forwards;
+}
+
+.celebration-balloon {
+  position: absolute;
+  font-size: 2rem;
+  pointer-events: none;
+  bottom: -30px;
+  left: 50%;
+  z-index: 998;
+  animation: balloonFloat 3s ease-out forwards;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}

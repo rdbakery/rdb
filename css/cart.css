@@ -13,6 +13,7 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   font-size: 0.7rem;
+  position: relative;
 }
 
 .cart-img-wrapper img.cart-img-thumb {
@@ -68,6 +69,7 @@
   list-style: none;
   padding-left: 0;
   margin-bottom: 1rem;
+  overflow: visible;
 }
 
 #cart-items li {
@@ -78,7 +80,8 @@
   background: #fff9f1;
   border-radius: 12px;
   margin-bottom: 0.65rem;
-  
+  position: relative;
+  overflow: visible;
 }
 
 
@@ -93,6 +96,7 @@
 .cart-popup-body {
   padding: 1rem 1.25rem 1.5rem;
   overflow-y: auto;
+  overflow-x: visible;
   background: #fff;
   color: #0f172a;
 }
