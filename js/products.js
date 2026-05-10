@@ -689,6 +689,23 @@ const products = [
     img: 'img/sandwich/S02.jpg',
     category: 'Sandwich'
   },
+  // Icecream
+    {
+    name: '[IC01] Mango Dolly',
+    desc: 'Creamy mango ice cream with real fruit pieces – a tropical treat in every scoop.',
+    price: 20,
+    img: 'img/icecream/IC01.png',
+    category: 'Icecream'
+  },
+    {
+    name: '[IC02] Vanilla Choco ',
+    desc: 'Creamy vanilla ice cream with chocolate chips – a classic favorite.',
+    price: 25,
+    img: 'img/icecream/IC02.png',
+    category: 'Icecream'
+  },
+
+
   //Drink
   {
     name: '[D01] Coco Cola',
