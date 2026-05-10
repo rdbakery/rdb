@@ -10,6 +10,9 @@ clearCartBtn.addEventListener('click', () => {
   // Clear local storage
   localStorage.removeItem('bakeryCart');
 
+  // Close cart popup after clearing
+  closeCartPopup();
+
   document.querySelectorAll('.product').forEach(productEl => {
     const name = productEl.querySelector('h3').innerText;
     const select = productEl.querySelector('select');
