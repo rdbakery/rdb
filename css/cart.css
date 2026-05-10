@@ -78,13 +78,16 @@
   background: #fff9f1;
   border-radius: 12px;
   margin-bottom: 0.65rem;
-  color: #0f172a;
+  
 }
 
-.cart-item-details,
-.cart-item-details strong,
-.cart-item-details small {
-  color: #0f172a;
+
+.bulk-discount-note {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #16a34a;
+  font-weight: bold;
+  margin-top: 4px;
 }
 
 .cart-popup-body {
