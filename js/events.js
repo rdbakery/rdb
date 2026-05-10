@@ -21,15 +21,28 @@ clearCartBtn.addEventListener('click', () => {
   });
 });
 
-  
-  cartIcon.addEventListener('click', () => {
-    cartBox.style.display = 'block';
-    cartBox.scrollIntoView({ behavior: 'smooth' });
-  });
-  
-  searchInput.addEventListener('input', e => {
-    renderProducts(e.target.value, selectedCategory);
-  });
+function closeCartPopup() {
+  if (cartPopup) {
+    cartPopup.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+cartIcon.addEventListener('click', () => {
+  if (cartPopup) {
+    cartPopup.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+});
+
+const closeCartPopupBtn = document.getElementById('close-cart-popup');
+if (closeCartPopupBtn) {
+  closeCartPopupBtn.addEventListener('click', closeCartPopup);
+}
+
+searchInput.addEventListener('input', e => {
+  renderProducts(e.target.value, selectedCategory);
+});
   
   document.querySelectorAll('#category-menu button').forEach(btn => {
     btn.addEventListener('click', () => {

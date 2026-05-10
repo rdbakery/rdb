@@ -5,6 +5,7 @@ const productList = document.getElementById('product-list');
 const cartItems = document.getElementById('cart-items');
 const cartCount = document.getElementById('cart-count');
 const cartIcon = document.getElementById('cart-icon');
+const cartPopup = document.getElementById('cart-popup');
 const cartBox = document.getElementById('cart');
 const whatsappLink = document.getElementById('whatsapp-link');
 const clearCartBtn = document.getElementById('clear-cart');

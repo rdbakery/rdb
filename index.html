@@ -101,6 +101,22 @@
   </header>
 
   <button id="go-to-menu" class="go-to-menu-btn">🍽️ Menu</button>
+
+  <div id="cart-popup" class="cart-popup-overlay" style="display:none;">
+    <div id="cart" class="cart-popup-panel">
+      <div class="cart-popup-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart-popup" class="cart-close-btn" aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-popup-body">
+        <ul id="cart-items"></ul>
+        <button id="clear-cart">Clear Cart</button>
+        <a id="whatsapp-link" class="place-order" target="_blank" href="https://wa.me/9760648714">
+          Place Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
   
   <main>
     <div class="category-menu" id="category-menu">
@@ -116,15 +132,6 @@
   
     <div style="flex: 1;">
       <div id="product-list"></div>
-  
-      <div id="cart" style="display:none;">
-        <h2>Your Cart</h2>
-        <ul id="cart-items"></ul>
-        <button id="clear-cart">Clear Cart</button>
-        <a id="whatsapp-link" class="place-order" target="_blank" href="https://wa.me/9760648714">
-          Place Order via WhatsApp
-        </a>
-      </div>
     </div>
   </main>
 
