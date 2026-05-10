@@ -7,6 +7,7 @@ function renderProducts(filter = '', category = '') {
           (category === '' || p.category === category)
       )
       .forEach(p => {
+          const productName = normalizeProductName(p.name);
           const div = document.createElement('div');
           div.className = 'product';
 
@@ -34,7 +35,7 @@ function renderProducts(filter = '', category = '') {
               }
 
               sizeOptionsHTML = `
-                  <select class="size-select" data-product="${p.name}">
+                  <select class="size-select" data-product="${productName}">
                       ${p.sizes.map(s => {
                           const discount = s.discount ? ` data-discount="${s.discount}"` : '';
                           return `<option value="${s.label}" data-price="${s.price}"${discount}>${s.label}</option>`;
@@ -43,7 +44,7 @@ function renderProducts(filter = '', category = '') {
               `;
           }
 
-          const key = selectedSize ? `${p.name}|${selectedSize}` : p.name;
+          const key = selectedSize ? `${productName}|${selectedSize}` : productName;
           const itemInCart = cart[key];
 
           let actionButtonsHTML = itemInCart
@@ -52,7 +53,7 @@ function renderProducts(filter = '', category = '') {
                   <span>${itemInCart.quantity}</span>
                   <button class="qty-btn" onclick='changeQty("${key}", 1)'>＋</button>
               </div>`
-              : `<button onclick='addToCart("${p.name}")'>Add to Cart</button>`;
+              : `<button onclick='addToCart("${productName}")'>Add to Cart</button>`;
 
           let priceHTML = '';
           if (sizeOptionsHTML) {
@@ -61,8 +62,8 @@ function renderProducts(filter = '', category = '') {
                   <div class="size-price-wrapper">
                       ${sizeOptionsHTML}
                       ${discountPrice !== null
-                          ? `<strong id="price-${p.name}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
-                          : `<strong id="price-${p.name}">₹${price}</strong>`
+                          ? `<strong id="price-${productName}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
+                          : `<strong id="price-${productName}">₹${price}</strong>`
                       }
                   </div>
               `;
@@ -71,8 +72,8 @@ function renderProducts(filter = '', category = '') {
               priceHTML = `
                   <div class="price-center">
                       ${discountPrice !== null
-                          ? `<strong id="price-${p.name}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
-                          : `<strong id="price-${p.name}">₹${price}</strong>`
+                          ? `<strong id="price-${productName}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
+                          : `<strong id="price-${productName}">₹${price}</strong>`
                       }
                   </div>
               `;
@@ -81,21 +82,21 @@ function renderProducts(filter = '', category = '') {
           div.innerHTML = `
               <div class="product-content">
                   <div class="product-image-wrapper">
-                      <img class="product-main-image" src="${images[0] || ''}" alt="${p.name}" data-image-index="0" />
+                      <img class="product-main-image" src="${images[0] || ''}" alt="${productName}" data-image-index="0" />
                       ${images.length > 1 ? `<div class="swipe-indicator"><span class="swipe-count">1/${images.length}</span></div>` : ''}
                       ${discountBadge}
                   </div>
                   <div class="product-details">
-                      <h3>${p.name}</h3>
+                      <h3>${productName}</h3>
                       ${priceHTML}
                       <p>${p.desc}</p>
                       <div class="price-and-button">          
-                          <div id="action-${p.name}">${actionButtonsHTML}</div>
+                          <div id="action-${productName}">${actionButtonsHTML}</div>
                       </div>
-                      <div id="bulk-note-${p.name}" class="bulk-discount-note-container"></div>
+                      <div id="bulk-note-${productName}" class="bulk-discount-note-container"></div>
                   </div>
               </div>
-              <div class="offer-below">${getBulkOfferMessage(p.name)}</div>
+              <div class="offer-below">${getBulkOfferMessage(productName)}</div>
           `;
 
           const mainImage = div.querySelector('.product-main-image');

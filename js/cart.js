@@ -62,23 +62,30 @@ function createCelebrationEffect(productElement) {
     // Remove balloon after animation
     setTimeout(() => balloon.remove(), (duration + delay) * 1000);
   }
-  
-  // Shake effect on the product card
-  productElement.style.animation = 'celebrationShake 0.6s ease-in-out';
-  setTimeout(() => {
-    productElement.style.animation = '';
-  }, 600);
 }
 
 function loadCartFromLocalStorage() {
   const storedCart = localStorage.getItem('bakeryCart');
   if (storedCart) {
     cart = JSON.parse(storedCart);
+
+    // Normalize any legacy keys with whitespace
+    Object.keys(cart).forEach(oldKey => {
+      const [rawName, size] = oldKey.split('|');
+      const name = normalizeProductName(rawName);
+      const newKey = size ? `${name}|${size}` : name;
+      if (newKey !== oldKey) {
+        cart[newKey] = cart[oldKey];
+        delete cart[oldKey];
+      }
+    });
+
     updateCart();
 
     // Update UI buttons
     Object.keys(cart).forEach(key => {
-      const [name, size] = key.split('|');
+      const [rawName, size] = key.split('|');
+      const name = normalizeProductName(rawName);
       const actionDiv = document.getElementById(`action-${name}`);
       if (actionDiv) {
         actionDiv.innerHTML = `
@@ -98,7 +105,8 @@ function saveCartToLocalStorage() {
 }
 
 function addToCart(name) {
-  const product = products.find(p => p.name === name);
+  name = normalizeProductName(name);
+  const product = products.find(p => normalizeProductName(p.name) === name);
   let size = '';
   let price = product.price;
   let discount = 0;
@@ -151,7 +159,8 @@ function changeQty(key, delta) {
     updateCart();
     saveCartToLocalStorage(); // Save cart after quantity change
 
-    const [name, size] = key.split('|');
+    const [rawName, size] = key.split('|');
+    const name = normalizeProductName(rawName);
     const actionDiv = document.getElementById(`action-${name}`);
     if (!cart[key]) {
       actionDiv.innerHTML = `<button onclick='addToCart("${name}")'>Add to Cart</button>`;
@@ -165,21 +174,14 @@ function changeQty(key, delta) {
       
       // Trigger celebration when quantity is increased
       if (delta > 0) {
-        // Celebrate on product card
+        const normalizedName = normalizeProductName(name);
+
+        // Celebrate on product card only
         const productCards = document.querySelectorAll('.product');
         productCards.forEach(card => {
-          const productName = card.querySelector('h3')?.innerText;
-          if (productName === name) {
+          const productName = normalizeProductName(card.querySelector('h3')?.innerText);
+          if (productName === normalizedName) {
             createCelebrationEffect(card);
-          }
-        });
-        
-        // Celebrate on cart item
-        const cartItems = document.querySelectorAll('.cart-item-with-image');
-        cartItems.forEach(cartItem => {
-          const cartItemName = cartItem.querySelector('.cart-item-details strong')?.innerText.split('(')[0].trim();
-          if (cartItemName === name) {
-            createCelebrationEffect(cartItem);
           }
         });
       }

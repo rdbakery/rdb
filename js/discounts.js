@@ -14,11 +14,12 @@ function isBulkDiscountApplicable(item) {
   }
   
   function updateBulkNote(productName) {
-    const product = products.find(p => p.name === productName);
-    const select = document.querySelector(`select[data-product="${productName}"]`);
-    const size = select ? select.value : '';
-    const key = size ? `${productName}|${size}` : productName;
-    const container = document.getElementById(`bulk-note-${productName}`);
+const safeName = normalizeProductName(productName);
+  const product = products.find(p => normalizeProductName(p.name) === safeName);
+  const select = document.querySelector(`select[data-product="${safeName}"]`);
+  const size = select ? select.value : '';
+  const key = size ? `${safeName}|${size}` : safeName;
+  const container = document.getElementById(`bulk-note-${safeName}`);
 
     if (!container) {
         return;

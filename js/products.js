@@ -698,7 +698,7 @@ const products = [
     category: 'Icecream'
   },
     {
-    name: '[IC02] Vanilla Choco ',
+    name: '[IC02] Vanilla Choco',
     desc: 'Creamy vanilla ice cream with chocolate chips – a classic favorite.',
     price: 25,
     img: 'img/icecream/IC02.png',

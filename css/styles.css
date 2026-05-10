@@ -182,21 +182,6 @@ main {
   }
 }
 
-@keyframes celebrationShake {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-  }
-  25% {
-    transform: scale(1.05) rotate(-1deg);
-  }
-  50% {
-    transform: scale(1.08) rotate(1deg);
-  }
-  75% {
-    transform: scale(1.05) rotate(-1deg);
-  }
-}
-
 .celebration-particle {
   position: absolute;
   font-size: 1.5rem;
