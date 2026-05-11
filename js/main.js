@@ -267,7 +267,7 @@ function updateCart() {
     totalDiscount += itemDiscountTotal;
 
     const product = products.find(p => p.name === item.name);
-    const imgSrc = product?.img || '';
+    const imgSrc = Array.isArray(product?.img) ? product.img[0] : (product?.img || '');
 
     cartItems.innerHTML += `
       <li class="cart-item-with-image">
