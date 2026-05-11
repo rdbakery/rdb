@@ -724,7 +724,7 @@ const products = [
       {
     name: '[IC05] ButterScotch',
     desc: 'Rich butter scotch ice cream with a smooth texture – a delightful treat.',
-    price: 160,
+    price: 170,
     img: 'img/icecream/IC05.jpg',
     category: 'Icecream'
   },
