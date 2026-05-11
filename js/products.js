@@ -694,17 +694,40 @@ const products = [
     name: '[IC01] Mango Dolly',
     desc: 'Creamy mango ice cream with real fruit pieces – a tropical treat in every scoop.',
     price: 20,
-    img: 'img/icecream/IC01.png',
+    img: ['img/icecream/IC01.png','img/icecream/IC01_1.png'],
     category: 'Icecream'
   },
     {
-    name: '[IC02] Vanilla Choco',
+    name: '[IC02] Choco Vanilla',
     desc: 'Creamy vanilla ice cream with chocolate chips – a classic favorite.',
-    price: 25,
-    img: 'img/icecream/IC02.png',
+    price: 20,
+    img: ['img/icecream/IC02.png','img/icecream/IC02_1.png'],
     category: 'Icecream'
   },
-
+      {
+    name: '[IC03] Choco Vanilla',
+    desc: 'Creamy vanilla ice cream with chocolate chips – a classic favorite.',
+    price: 25,
+    img: ['img/icecream/IC03.png','img/icecream/IC03_1.png'],
+    category: 'Icecream'
+  },
+      {
+    name: '[IC04] Double Choco',
+    desc: 'Rich chocolate ice cream with extra chocolate chips – a decadent treat.',
+    sizes: [
+      { label: 'Small', price: 20, discount: 0 },
+      { label: 'Large', price: 40 }
+    ],
+    img: ['img/icecream/IC04.png','img/icecream/IC04_1.png'],
+    category: 'Icecream'
+  },
+      {
+    name: '[IC05] ButterScotch',
+    desc: 'Rich butter scotch ice cream with a smooth texture – a delightful treat.',
+    price: 160,
+    img: 'img/icecream/IC05.jpg',
+    category: 'Icecream'
+  },
 
   //Drink
   {
