@@ -13,8 +13,29 @@ function updateCart() {
       const item = cart[key];
       cartCountValue += item.quantity;
   
-      const originalPrice = item.price;
-      const fixedDiscount = item.discount;
+      // Find current product details
+      const product = products.find(p => normalizeProductName(p.name) === normalizeProductName(item.name));
+      if (!product) {
+        console.warn(`Product ${item.name} not found, skipping cart item`);
+        return;
+      }
+  
+      let currentPrice, currentDiscount;
+      if (item.size) {
+        const sizeObj = product.sizes.find(s => s.label === item.size);
+        if (!sizeObj) {
+          console.warn(`Size ${item.size} not found for ${item.name}, skipping cart item`);
+          return;
+        }
+        currentPrice = sizeObj.price;
+        currentDiscount = sizeObj.discount || 0;
+      } else {
+        currentPrice = product.price || 0;
+        currentDiscount = product.discount || 0;
+      }
+  
+      const originalPrice = currentPrice;
+      const fixedDiscount = currentDiscount;
       const priceAfterFixedDiscount = originalPrice - fixedDiscount;
       let itemTotal = priceAfterFixedDiscount * item.quantity;
   
@@ -30,13 +51,12 @@ function updateCart() {
       const itemDiscountTotal = (fixedDiscount * item.quantity) + bulkDiscountAmount;
       totalDiscount += itemDiscountTotal;
   
-      const product = products.find(p => p.name === item.name);
-      const imgSrc = Array.isArray(product?.img) ? product.img[0] : (product?.img || '');
+      const productImg = Array.isArray(product?.img) ? product.img[0] : (product?.img || '');
 
       cartItems.innerHTML += `
         <li class="cart-item-with-image">
           <div class="cart-img-wrapper">
-            <img src="${imgSrc}" alt="${item.name}" class="cart-img-thumb" />
+            <img src="${productImg}" alt="${item.name}" class="cart-img-thumb" />
           </div>
           <div class="cart-item-details">
             <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}

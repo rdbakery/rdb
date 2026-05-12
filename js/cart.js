@@ -120,8 +120,11 @@ function addToCart(name) {
   if (product.sizes) {
     const select = document.querySelector(`select[data-product="${name}"]`);
     size = select.value;
-    price = parseInt(select.options[select.selectedIndex].dataset.price);
-    discount = parseInt(select.options[select.selectedIndex].dataset.discount || 0);
+    const sizeObj = product.sizes.find(s => s.label === size);
+    if (sizeObj) {
+      price = sizeObj.price;
+      discount = sizeObj.discount || 0;
+    }
   }
 
   const key = size ? `${name}|${size}` : name;
