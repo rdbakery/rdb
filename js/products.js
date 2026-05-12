@@ -27,6 +27,17 @@ const BULK_DISCOUNT_PRODUCTS = {
 };
 
 const products = [
+    {
+    name: '[C00] Matka Cake',
+    desc: 'A deliciously moist and creamy matka cake, perfect for any celebration or sweet craving.',
+    sizes: [
+      { label: '3 pound', price: 850 , discount:50 },
+      { label: '4 pounds', price: 1150, discount:100 },
+      { label: '5 pounds', price: 1400, discount:150 }
+    ],
+    img: ['img/cake/C00.jpg', 'img/cake/C00_1.jpg'],
+    category: 'Cake'
+  },
   {
     name: '[C01] Doll Cake',
     desc: 'Make her birthday magical with this princess-style doll cake, perfect for celebrations!',
