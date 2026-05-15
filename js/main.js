@@ -270,23 +270,30 @@ function updateCart() {
     const imgSrc = Array.isArray(product?.img) ? product.img[0] : (product?.img || '');
 
     cartItems.innerHTML += `
-      <li class="cart-item-with-image">
-        <div class="cart-img-wrapper">
+      <li class="cart-item-layout">
+        <div class="cart-item-left">
           <img src="${imgSrc}" alt="${item.name}" class="cart-img-thumb" />
         </div>
         <div class="cart-item-details">
-          <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
-          <br>
-          <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
-          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
-          ${bulkDiscountRate > 0
-            ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% = ₹${bulkDiscountAmount.toFixed(2)})</small>`
-            : ''}
+          <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong>
+          <div class="cart-unit-price">Unit Price: ₹${originalPrice.toFixed(2)}</div>
           
-          <br>
-          <button class="qty-btn" onclick='changeQty("${key}", -1)'>-</button>
-          <span>${item.quantity}</span>
-          <button class="qty-btn" onclick='changeQty("${key}", 1)'>+</button>
+          <div class="cart-discount-list">
+            ${fixedDiscount > 0 ? `<div class="bulk-discount-note">✔️ Fixed Discount: ₹${(fixedDiscount * item.quantity).toFixed(2)}</div>` : ''}
+            ${bulkDiscountRate > 0 ? `<div class="bulk-discount-note">🎉 Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}</div>` : ''}
+          </div>
+          
+          <div class="cart-qty-wrapper">
+            <button class="qty-btn" onclick='changeQty("${key}", -1)'>-</button>
+            <span style="font-weight: 600; margin: 0 4px;">${item.quantity}</span>
+            <button class="qty-btn" onclick='changeQty("${key}", 1)'>+</button>
+          </div>
+        </div>
+        <div class="cart-item-summary">
+          <span class="summary-label">Total</span>
+          ${itemDiscountTotal > 0 ? `<div class="summary-original-price">₹${(originalPrice * item.quantity).toFixed(2)}</div>` : ''}
+          ${itemDiscountTotal > 0 ? `<div class="summary-discount-price">-₹${itemDiscountTotal.toFixed(2)}</div>` : ''}
+          <div class="summary-final-price">₹${itemTotal.toFixed(2)}</div>
         </div>
       </li>
     `;
@@ -313,8 +320,25 @@ function updateCart() {
       message += `🎉 *You saved: ₹${totalDiscount.toFixed(2)} on this order!*\n`;
     }    
     cartItems.innerHTML += `
-      <li><strong>Total: ₹${total.toFixed(2)}</strong></li>
-      ${totalDiscount > 0 ? `<li class="cart-savings">🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!</li>` : ''}
+      <li class="cart-total-summary" style="border-top: 2px dashed #e5e7eb; margin-top: 12px; padding-top: 16px; display: flex; flex-direction: column; gap: 8px; list-style: none;">
+        <div style="display: flex; justify-content: space-between; color: #4b5563; font-size: 1rem;">
+          <span>Subtotal</span>
+          <span>₹${(total + totalDiscount).toFixed(2)}</span>
+        </div>
+        ${totalDiscount > 0 ? `
+        <div style="display: flex; justify-content: space-between; color: #16a34a; font-size: 1rem;">
+          <span>Total Savings</span>
+          <span>-₹${totalDiscount.toFixed(2)}</span>
+        </div>` : ''}
+        <div style="display: flex; justify-content: space-between; color: #1f2937; font-size: 1.3rem; font-weight: 800; border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 4px;">
+          <span>Final Total</span>
+          <span>₹${total.toFixed(2)}</span>
+        </div>
+        ${totalDiscount > 0 ? `
+        <div style="text-align: center; color: #15803d; background: #dcfce3; padding: 8px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; margin-top: 8px; border: 1px dashed #86efac;">
+          🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!
+        </div>` : ''}
+      </li>
     `;
 
     const waNumber = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG.contact.whatsappNumber : '+919760648714';
