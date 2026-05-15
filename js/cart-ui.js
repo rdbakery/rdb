@@ -55,11 +55,11 @@ function updateCart() {
 
       cartItems.innerHTML += `
         <li class="cart-item-with-image">
-          <div class="cart-img-wrapper">
+          <div class="cart-img-wrapper" style="cursor: pointer;" onclick="scrollToProduct('${item.name.replace(/'/g, "\\'")}', '${item.size ? item.size.replace(/'/g, "\\'") : ''}')">
             <img src="${productImg}" alt="${item.name}" class="cart-img-thumb" />
           </div>
           <div class="cart-item-details">
-            <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
+            <strong style="cursor: pointer; text-decoration: underline; color: #d35400;" onclick="scrollToProduct('${item.name.replace(/'/g, "\\'")}', '${item.size ? item.size.replace(/'/g, "\\'") : ''}')">${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
             <br>
             <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
             ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = -₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}

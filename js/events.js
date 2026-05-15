@@ -100,3 +100,96 @@ searchInput.addEventListener('input', e => {
 window.addEventListener('load', () => {
   selectCategory(''); // Select "All" category on load
 });
+
+window.scrollToProduct = function(productName, targetSize = null) {
+  const product = products.find(p => {
+    const pName = typeof normalizeProductName === 'function' ? normalizeProductName(p.name) : p.name;
+    const targetName = typeof normalizeProductName === 'function' ? normalizeProductName(productName) : productName;
+    return pName === targetName;
+  });
+
+  if (product) {
+    if (typeof searchInput !== 'undefined' && searchInput) searchInput.value = '';
+    
+    if (typeof selectedCategory !== 'undefined' && selectedCategory !== product.category && typeof selectCategory === 'function') {
+      selectCategory(product.category);
+    } else if (typeof renderProducts === 'function') {
+      renderProducts('', typeof selectedCategory !== 'undefined' ? selectedCategory : '');
+    }
+
+    setTimeout(() => {
+      const productCards = document.querySelectorAll('.product');
+      for (let card of productCards) {
+        const title = card.querySelector('h3');
+        if (title) {
+            const tName = typeof normalizeProductName === 'function' ? normalizeProductName(title.innerText) : title.innerText;
+            const targetName = typeof normalizeProductName === 'function' ? normalizeProductName(productName) : productName;
+            
+            if (tName === targetName) {
+              if (targetSize) {
+                  const select = card.querySelector('select.size-select');
+                  if (select) {
+                      for (let i = 0; i < select.options.length; i++) {
+                          if (select.options[i].value === targetSize) {
+                              select.selectedIndex = i;
+                              select.dispatchEvent(new Event('change'));
+                              break;
+                          }
+                      }
+                  }
+              }
+
+              if (typeof closeCartPopup === 'function') closeCartPopup();
+
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              const originalTransition = card.style.transition;
+              const originalBoxShadow = card.style.boxShadow;
+              card.style.transition = 'box-shadow 0.5s ease-in-out';
+              card.style.boxShadow = '0 0 15px 4px rgba(255, 140, 0, 0.7)';
+              setTimeout(() => {
+                card.style.boxShadow = originalBoxShadow;
+                setTimeout(() => { card.style.transition = originalTransition; }, 500);
+              }, 2000);
+              break;
+            }
+        }
+      }
+    }, 150);
+  }
+};
+
+window.applyBulkOffer = function(productName, targetSize = null) {
+  // First, scroll to the product and select the target size
+  if (typeof window.scrollToProduct === 'function') {
+    window.scrollToProduct(productName, targetSize);
+  }
+
+  // After the UI updates, apply the required quantity to the cart
+  setTimeout(() => {
+    if (typeof BULK_DISCOUNT_PRODUCTS !== 'undefined' && typeof addToCart === 'function') {
+      const pName = typeof normalizeProductName === 'function' ? normalizeProductName(productName) : productName;
+      
+      let config = BULK_DISCOUNT_PRODUCTS[productName];
+      if (!config) {
+        const foundKey = Object.keys(BULK_DISCOUNT_PRODUCTS).find(
+          k => (typeof normalizeProductName === 'function' ? normalizeProductName(k) : k) === pName
+        );
+        if (foundKey) config = BULK_DISCOUNT_PRODUCTS[foundKey];
+      }
+
+      if (config) {
+        const key = targetSize ? `${pName}|${targetSize}` : pName;
+        const currentQty = (typeof cart !== 'undefined' && cart[key]) ? cart[key].quantity : 0;
+        const needed = config.threshold - currentQty;
+        
+        if (needed > 0) {
+          for (let i = 0; i < needed; i++) {
+            addToCart(pName); // Adds item (reads DOM select updated by scrollToProduct)
+          }
+        } else if (currentQty === 0) {
+          addToCart(pName);
+        }
+      }
+    }
+  }, 350); 
+};
