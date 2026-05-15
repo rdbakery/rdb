@@ -1,8 +1,8 @@
-document.addEventListener("contextmenu", function (e) {
+if (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.antiDevTools) {
+  document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
   });
 
-  
   document.addEventListener("keydown", function (e) {
     // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
     if (
@@ -23,4 +23,4 @@ document.addEventListener("contextmenu", function (e) {
       window.location.reload();
     }
   }, 1000);
-  
+}

@@ -1,6 +1,6 @@
 window.onload = function () {
   const popup = document.getElementById('thank-you-popup');
-  if (popup) {
+  if (popup && typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.popupOnLoad) {
     popup.style.display = 'flex';
   }
 };
@@ -21,4 +21,3 @@ document.addEventListener('DOMContentLoaded', function () {
     popupOverlay.style.display = 'none';
   });
 });
-

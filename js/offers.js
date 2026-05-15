@@ -37,8 +37,12 @@ function getBulkOfferMessage(productName) {
     offerIndex = (offerIndex + 1) % offers.length;
   }
   
-  rotateOffers();
-  setInterval(rotateOffers, 5000);
+  if (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.offersRotator) {
+    rotateOffers();
+    setInterval(rotateOffers, 5000);
+  } else {
+    if (offerRotator) offerRotator.style.display = 'none';
+  }
   
   offerRotator.addEventListener('click', () => {
     const productName = offerRotator.dataset.product;

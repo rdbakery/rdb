@@ -1,5 +1,18 @@
 // globals.js
 
+// Global App Configuration
+const APP_CONFIG = {
+  features: {
+    popupOnLoad: false,          // Show popup when the page loads or reloads
+    celebrationEffects: false,    // Confetti/flower effects when adding items to the cart
+    offersRotator: false,         // Display the rotating offers banner at the top
+    antiDevTools: false          // Prevent right-click, F12, and opening DevTools
+  },
+  contact: {
+    whatsappNumber: '+919760648714'
+  }
+};
+
 // DOM Elements
 const productList = document.getElementById('product-list');
 const cartItems = document.getElementById('cart-items');

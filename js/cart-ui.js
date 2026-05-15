@@ -100,9 +100,11 @@ function updateCart() {
         ${totalDiscount > 0 ? `<li class="cart-savings">🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!</li>` : ''}
       `;
   
-      whatsappLink.href = `https://wa.me/+919760648714?text=${encodeURIComponent(message)}`;
+      const waNumber = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG.contact.whatsappNumber : '+919760648714';
+      whatsappLink.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
     } else {
-      whatsappLink.href = `https://wa.me/+919760648714`;
+      const waNumber = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG.contact.whatsappNumber : '+919760648714';
+      whatsappLink.href = `https://wa.me/${waNumber}`;
     }
   }
   

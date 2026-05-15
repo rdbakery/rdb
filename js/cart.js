@@ -150,7 +150,7 @@ function addToCart(name) {
   const productCards = document.querySelectorAll('.product');
   productCards.forEach(card => {
     const productName = card.querySelector('h3')?.innerText;
-    if (productName === name) {
+    if (productName === name && typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.celebrationEffects) {
       createCelebrationEffect(card);
     }
   });
@@ -182,7 +182,7 @@ function changeQty(key, delta) {
         </div>`;
       
       // Trigger celebration when quantity is increased
-      if (delta > 0) {
+      if (delta > 0 && typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.celebrationEffects) {
         const normalizedName = normalizeProductName(name);
 
         // Celebrate on product card only
@@ -198,4 +198,3 @@ function changeQty(key, delta) {
     updateBulkNote(name);
   }
 }
-

@@ -317,9 +317,11 @@ function updateCart() {
       ${totalDiscount > 0 ? `<li class="cart-savings">🎉 You saved ₹${totalDiscount.toFixed(2)} on this order!</li>` : ''}
     `;
 
-    whatsappLink.href = `https://wa.me/+919760648714?text=${encodeURIComponent(message)}`;
+    const waNumber = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG.contact.whatsappNumber : '+919760648714';
+    whatsappLink.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
   } else {
-    whatsappLink.href = `https://wa.me/+919760648714`;
+    const waNumber = (typeof APP_CONFIG !== 'undefined') ? APP_CONFIG.contact.whatsappNumber : '+919760648714';
+    whatsappLink.href = `https://wa.me/${waNumber}`;
   }
 }
 
@@ -433,8 +435,12 @@ function rotateOffers() {
   offerIndex = (offerIndex + 1) % offers.length;
 }
 
-rotateOffers();
-setInterval(rotateOffers, 5000);
+if (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.offersRotator) {
+  rotateOffers();
+  setInterval(rotateOffers, 5000);
+} else {
+  if (offerRotator) offerRotator.style.display = 'none';
+}
 
 offerRotator.addEventListener('click', () => {
   const productList = document.getElementById('product-list');
