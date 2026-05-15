@@ -335,3 +335,53 @@ main {
   .cart-discount-list .bulk-discount-note { font-size: 0.7rem; padding: 4px 6px; white-space: normal; line-height: 1.2; }
   .qty-btn { padding: 2px 8px; }
 }
+
+/* Popup Enhancements (Mobile Friendly) */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.popup-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  animation: bounceFlash 0.5s ease-out;
+}
+
+.popup-banner {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: block;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: -12px; 
+  right: -12px;
+  background: #ffffff; 
+  color: #d35400;
+  border: 2px solid #f7a072;
+  border-radius: 50%;
+  width: 32px; 
+  height: 32px;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  line-height: 1;
+}

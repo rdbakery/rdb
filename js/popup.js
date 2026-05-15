@@ -7,17 +7,11 @@ window.onload = function () {
 
 document.addEventListener('DOMContentLoaded', function () {
   const popupOverlay = document.getElementById('thank-you-popup');
-  const popupContent = document.querySelector('.popup-content');
+  const closeBtn = document.querySelector('.popup-close-btn');
 
-  if (!popupOverlay || !popupContent) return;
+  if (!popupOverlay || !closeBtn) return;
 
-  popupOverlay.addEventListener('click', function (e) {
-    if (!popupContent.contains(e.target)) {
-      popupOverlay.style.display = 'none';
-    }
-  });
-
-  popupContent.addEventListener('click', function () {
+  closeBtn.addEventListener('click', function () {
     popupOverlay.style.display = 'none';
   });
 });
