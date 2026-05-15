@@ -109,11 +109,23 @@ window.scrollToProduct = function(productName, targetSize = null) {
   });
 
   if (product) {
-    if (typeof searchInput !== 'undefined' && searchInput) searchInput.value = '';
-    
-    if (typeof selectedCategory !== 'undefined' && selectedCategory !== product.category && typeof selectCategory === 'function') {
-      selectCategory(product.category);
-    } else if (typeof renderProducts === 'function') {
+    let needsRender = false;
+
+    if (typeof searchInput !== 'undefined' && searchInput && searchInput.value !== '') {
+      searchInput.value = '';
+      needsRender = true;
+    }
+
+    if (typeof selectedCategory !== 'undefined' && selectedCategory !== '' && selectedCategory !== product.category) {
+      if (typeof selectCategory === 'function') {
+        selectCategory(product.category);
+        needsRender = false;
+      } else {
+        needsRender = true;
+      }
+    }
+
+    if (needsRender && typeof renderProducts === 'function') {
       renderProducts('', typeof selectedCategory !== 'undefined' ? selectedCategory : '');
     }
 

@@ -278,9 +278,9 @@ function updateCart() {
           <strong>${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
           <br>
           <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
-          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = -₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
+          ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
           ${bulkDiscountRate > 0
-            ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% = -₹${bulkDiscountAmount.toFixed(2)})</small>`
+            ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% = ₹${bulkDiscountAmount.toFixed(2)})</small>`
             : ''}
           
           <br>
@@ -296,10 +296,10 @@ function updateCart() {
     message += `   • Unit Price: ₹${originalPrice.toFixed(2)}\n`;
     
     if (fixedDiscount > 0) {
-      message += `   • - Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)}\n`;
+      message += `   • Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)}\n`;
     }
     if (bulkDiscountRate > 0) {
-      message += `   • - Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}\n`;
+      message += `   • Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}\n`;
     }    
     
     message += `\n`;

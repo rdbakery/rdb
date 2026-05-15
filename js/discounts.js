@@ -20,29 +20,36 @@ const safeName = normalizeProductName(productName);
   const size = select ? select.value : '';
   const key = size ? `${safeName}|${size}` : safeName;
   const container = document.getElementById(`bulk-note-${safeName}`);
+  const offerContainer = document.getElementById(`offer-${safeName}`);
 
-    if (!container) {
-        return;
-    }
-    container.innerHTML = '';
   
     const item = cart[key];
-    if (!item) return;
   
     let messages = '';
+    let isApplied = false;
   
-    if (item.discount && item.discount > 0) {
-      const totalDiscount = item.discount * item.quantity;
-      messages += `<div class="bulk-discount-note">Fixed Discount Applied: ₹${totalDiscount} off</div>`;
+    if (item) {
+      if (item.discount && item.discount > 0) {
+        const totalDiscount = item.discount * item.quantity;
+        messages += `<div class="bulk-discount-note">✔️ Fixed Discount: ₹${totalDiscount}</div>`;
+      }
+    
+      if (isBulkDiscountApplicable(item)) {
+        isApplied = true;
+        const rate = getBulkDiscountRate(item);
+        const priceAfterFixed = item.price - item.discount;
+        const discountAmount = Math.round(priceAfterFixed * item.quantity * (rate / 100));
+        messages += `<div class="bulk-discount-note">🎉 Bulk Discount (${rate}%): ₹${discountAmount}</div>`;
+      }
     }
-  
-    if (isBulkDiscountApplicable(item)) {
-      const rate = getBulkDiscountRate(item);
-      const priceAfterFixed = item.price - item.discount;
-      const discountAmount = Math.round(priceAfterFixed * item.quantity * (rate / 100));
-      messages += `<div class="bulk-discount-note">Bulk Discount Applied (${rate}% off): ₹${discountAmount} off</div>`;
+
+    if (container) {
+      container.innerHTML = messages;
     }
-  
-    container.innerHTML = messages;
+    
+    if (offerContainer && typeof getBulkOfferMessage === 'function') {
+      const originalName = product ? product.name : safeName;
+      offerContainer.innerHTML = getBulkOfferMessage(originalName, isApplied);
+    }
   }
   

@@ -62,12 +62,11 @@ function updateCart() {
             <strong style="cursor: pointer; text-decoration: underline; color: #d35400;" onclick="scrollToProduct('${item.name.replace(/'/g, "\\'")}', '${item.size ? item.size.replace(/'/g, "\\'") : ''}')">${item.name}${item.size ? ` (${item.size})` : ''}</strong> x${item.quantity} - ₹${itemTotal.toFixed(2)}
             <br>
             <small>Unit Price: ₹${originalPrice.toFixed(2)}</small>
-            ${fixedDiscount > 0 ? `<br><small class="bulk-discount-note">(Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = -₹${(fixedDiscount * item.quantity).toFixed(2)})</small>` : ''}
-            ${bulkDiscountRate > 0
-              ? `<br><small class="bulk-discount-note">(Bulk Discount: ${bulkDiscountRate}% = -₹${bulkDiscountAmount.toFixed(2)})</small>`
-              : ''}
+            <div style="margin-top: 6px; margin-bottom: 6px; display: flex; flex-direction: column; gap: 4px;">
+              ${fixedDiscount > 0 ? `<div class="bulk-discount-note">✔️ Fixed Discount: ₹${(fixedDiscount * item.quantity).toFixed(2)}</div>` : ''}
+              ${bulkDiscountRate > 0 ? `<div class="bulk-discount-note">🎉 Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}</div>` : ''}
+            </div>
             
-            <br>
             <button class="qty-btn" onclick='changeQty("${key}", -1)'>-</button>
             <span>${item.quantity}</span>
             <button class="qty-btn" onclick='changeQty("${key}", 1)'>+</button>
@@ -79,10 +78,10 @@ function updateCart() {
       message += `   • Unit Price: ₹${originalPrice.toFixed(2)}\n`;
   
       if (fixedDiscount > 0) {
-        message += `   • - Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)}\n`;
+        message += `   • Fixed Discount: ₹${fixedDiscount} × ${item.quantity} = ₹${(fixedDiscount * item.quantity).toFixed(2)}\n`;
       }
       if (bulkDiscountRate > 0) {
-        message += `   • - Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}\n`;
+        message += `   • Bulk Discount (${bulkDiscountRate}%): ₹${bulkDiscountAmount.toFixed(2)}\n`;
       }
   
       message += `\n`;

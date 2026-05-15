@@ -1,15 +1,29 @@
 //Bulk offer messages and rotator
 // offers.js
 
-function getBulkOfferMessage(productName) {
-    const config = BULK_DISCOUNT_PRODUCTS[productName];
+function getBulkOfferMessage(productName, isApplied = false) {
+    let config = BULK_DISCOUNT_PRODUCTS[productName];
+    if (!config && typeof normalizeProductName === 'function') {
+      const safeName = normalizeProductName(productName);
+      const foundKey = Object.keys(BULK_DISCOUNT_PRODUCTS).find(k => normalizeProductName(k) === safeName);
+      if (foundKey) config = BULK_DISCOUNT_PRODUCTS[foundKey];
+    }
     if (!config) return '';
   
     const sizes = config.eligibleSizes.join(' or ');
+    
+    if (isApplied) {
+      return `
+        <div class="bulk-offer-message applied" title="Offer Applied">
+          <div style="font-weight: bold; color: #15803d; margin-bottom: 4px;">✨ Offer Applied!</div>
+          You unlocked <strong style="color: #166534;">${config.discountRate}% OFF</strong> by adding <strong>${config.threshold}</strong> (<em>${sizes}</em>).
+        </div>`;
+    }
+
     return `
-      <div class="bulk-offer-message" style="cursor: pointer; border: 1px dashed #f7a072; padding: 8px; border-radius: 6px; text-align: center; background-color: #fff9f2; margin-top: 10px; transition: background-color 0.3s ease;" onclick="scrollToProduct('${productName.replace(/'/g, "\\'")}', '${config.eligibleSizes[0].replace(/'/g, "\\'")}')" title="Click to view offer">
-        🎉 <strong>Special Offer:</strong> Buy <strong>${config.threshold}</strong> 
-        (<em>${sizes}</em>) and get <strong style="color: #d35400;">${config.discountRate}% OFF</strong>! <br><span style="font-size: 0.85em; text-decoration: underline; color: #e67e22; font-weight: bold; cursor: pointer;" onclick="event.stopPropagation(); applyBulkOffer('${productName.replace(/'/g, "\\'")}', '${config.eligibleSizes[0].replace(/'/g, "\\'")}')" title="Click to apply offer">Click to Apply</span>
+      <div class="bulk-offer-message" onclick="scrollToProduct('${productName.replace(/'/g, "\\'")}', '${config.eligibleSizes[0].replace(/'/g, "\\'")}')" title="Click to view offer">
+        <div style="font-weight: bold; color: #d97706; margin-bottom: 4px;">🎁 Special Offer</div>
+        Buy <strong>${config.threshold}</strong> (<em>${sizes}</em>) and get <strong style="color: #d35400;">${config.discountRate}% OFF</strong>! <br><span style="font-size: 0.85em; text-decoration: underline; color: #ea580c; font-weight: bold; cursor: pointer; display: inline-block; margin-top: 6px;" onclick="event.stopPropagation(); applyBulkOffer('${productName.replace(/'/g, "\\'")}', '${config.eligibleSizes[0].replace(/'/g, "\\'")}')" title="Click to apply offer">Apply Offer ✨</span>
       </div>`;
   }
   

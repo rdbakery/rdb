@@ -46,6 +46,8 @@ function renderProducts(filter = '', category = '') {
 
           const key = selectedSize ? `${productName}|${selectedSize}` : productName;
           const itemInCart = cart[key];
+          
+          const isApplied = itemInCart && typeof isBulkDiscountApplicable === 'function' ? isBulkDiscountApplicable(itemInCart) : false;
 
           let actionButtonsHTML = itemInCart
               ? `<div class="qty-controls">
@@ -55,29 +57,14 @@ function renderProducts(filter = '', category = '') {
               </div>`
               : `<button onclick='addToCart("${productName}")'>Add to Cart</button>`;
 
-          let priceHTML = '';
-          if (sizeOptionsHTML) {
-              // Dropdown is available
-              priceHTML = `
-                  <div class="size-price-wrapper">
-                      ${sizeOptionsHTML}
-                      ${discountPrice !== null
-                          ? `<strong id="price-${productName}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
-                          : `<strong id="price-${productName}">₹${price}</strong>`
-                      }
-                  </div>
-              `;
-          } else {
-              // No dropdown, price should be centered
-              priceHTML = `
-                  <div class="price-center">
-                      ${discountPrice !== null
-                          ? `<strong id="price-${productName}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
-                          : `<strong id="price-${productName}">₹${price}</strong>`
-                      }
-                  </div>
-              `;
-          }
+          let priceHTML = `
+              <div class="price-center">
+                  ${discountPrice !== null
+                      ? `<strong id="price-${productName}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong>`
+                      : `<strong id="price-${productName}">₹${price}</strong>`
+                  }
+              </div>
+          `;
 
           div.innerHTML = `
               <div class="product-content">
@@ -88,15 +75,18 @@ function renderProducts(filter = '', category = '') {
                   </div>
                   <div class="product-details">
                       <h3>${productName}</h3>
+                      ${(typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.showProductDescription && p.desc) ? `<p class="product-description">${p.desc}</p>` : ''}
+                      
+                      ${sizeOptionsHTML ? `<div class="product-options">${sizeOptionsHTML}</div>` : ''}
+                      
                       ${priceHTML}
-                      ${(typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.showProductDescription && p.desc) ? `<p>${p.desc}</p>` : ''}
-                      <div class="price-and-button">          
-                          <div id="action-${productName}">${actionButtonsHTML}</div>
-                      </div>
+                      
+                      <div class="offer-below" id="offer-${productName}">${getBulkOfferMessage(p.name, isApplied)}</div>
+                      
+                      <div class="action-container" id="action-${productName}">${actionButtonsHTML}</div>
                       <div id="bulk-note-${productName}" class="bulk-discount-note-container"></div>
                   </div>
               </div>
-              <div class="offer-below">${getBulkOfferMessage(productName)}</div>
           `;
 
           const mainImage = div.querySelector('.product-main-image');
