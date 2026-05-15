@@ -15,8 +15,12 @@ function getBulkOfferMessage(productName) {
   
   const offers = Object.entries(BULK_DISCOUNT_PRODUCTS).map(([productName, config]) => {
     const sizesText = config.eligibleSizes.join(' or ');
+    
+    // Remove the product code (e.g. "[C01] ") for a cleaner display in the banner
+    const cleanName = productName.replace(/^\[.*?\]\s*/, '');
+    
     return {
-      text: `🎉 Buy ${config.threshold} (${sizesText}) ${productName} and get ${config.discountRate}% OFF!`,
+      text: ` Buy ${config.threshold} <strong>${cleanName}</strong> (${sizesText}) & Get <strong style="color: #fffbeb;">${config.discountRate}% OFF</strong>!`,
       productName: productName,
       targetSize: config.eligibleSizes[0] // Select first eligible size when clicked
     };
@@ -30,11 +34,20 @@ function getBulkOfferMessage(productName) {
       offerRotator.textContent = "No current offers available.";
       return;
     }
-    const offer = offers[offerIndex];
-    offerRotator.innerHTML = `<span style="cursor: pointer; text-decoration: underline;" title="Click to view offer">${offer.text}</span>`;
-    offerRotator.dataset.product = offer.productName;
-    offerRotator.dataset.size = offer.targetSize;
-    offerIndex = (offerIndex + 1) % offers.length;
+    
+    // Smoothly fade out
+    offerRotator.style.opacity = '0';
+    
+    setTimeout(() => {
+      const offer = offers[offerIndex];
+      offerRotator.innerHTML = `<span style="cursor: pointer;" title="Click to view offer">${offer.text}</span>`;
+      offerRotator.dataset.product = offer.productName;
+      offerRotator.dataset.size = offer.targetSize;
+      offerIndex = (offerIndex + 1) % offers.length;
+      
+      // Smoothly fade back in
+      offerRotator.style.opacity = '1';
+    }, 400); // Wait for the 0.4s CSS transition to finish before swapping text
   }
   
   if (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.offersRotator) {
