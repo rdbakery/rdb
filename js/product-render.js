@@ -89,7 +89,7 @@ function renderProducts(filter = '', category = '') {
                   <div class="product-details">
                       <h3>${productName}</h3>
                       ${priceHTML}
-                      <p>${p.desc}</p>
+                      ${(typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.showProductDescription && p.desc) ? `<p>${p.desc}</p>` : ''}
                       <div class="price-and-button">          
                           <div id="action-${productName}">${actionButtonsHTML}</div>
                       </div>

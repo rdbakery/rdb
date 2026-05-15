@@ -6,7 +6,8 @@ const APP_CONFIG = {
     popupOnLoad: false,          // Show popup when the page loads or reloads
     celebrationEffects: false,    // Confetti/flower effects when adding items to the cart
     offersRotator: false,         // Display the rotating offers banner at the top
-    antiDevTools: false          // Prevent right-click, F12, and opening DevTools
+    antiDevTools: false,         // Prevent right-click, F12, and opening DevTools
+    showProductDescription: false // Show product description on product cards
   },
   contact: {
     whatsappNumber: '+919760648714'

@@ -69,7 +69,7 @@ function renderProducts(filter = '', category = '') {
           ${discountBadge}
         </div>
         <h3>${p.name}</h3>
-        <p>${p.desc}</p>
+        ${(typeof APP_CONFIG !== 'undefined' && APP_CONFIG.features.showProductDescription && p.desc) ? `<p>${p.desc}</p>` : ''}
         ${sizeOptionsHTML}
         ${discountPrice !== null
           ? `<strong id="price-${p.name}"><span class="original-price">₹${price}</span> ₹${discountPrice}</strong><br>`
