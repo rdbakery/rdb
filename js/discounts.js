@@ -27,6 +27,7 @@ const safeName = normalizeProductName(productName);
   
     let messages = '';
     let isApplied = false;
+    let appliedSize = null;
   
     if (item) {
       if (item.discount && item.discount > 0) {
@@ -36,6 +37,7 @@ const safeName = normalizeProductName(productName);
     
       if (isBulkDiscountApplicable(item)) {
         isApplied = true;
+        appliedSize = item.size;
         const rate = getBulkDiscountRate(item);
         const priceAfterFixed = item.price - item.discount;
         const discountAmount = Math.round(priceAfterFixed * item.quantity * (rate / 100));
@@ -49,7 +51,7 @@ const safeName = normalizeProductName(productName);
     
     if (offerContainer && typeof getBulkOfferMessage === 'function') {
       const originalName = product ? product.name : safeName;
-      offerContainer.innerHTML = getBulkOfferMessage(originalName, isApplied);
+      offerContainer.innerHTML = getBulkOfferMessage(originalName, isApplied, appliedSize);
     }
   }
   

@@ -48,6 +48,7 @@ function renderProducts(filter = '', category = '') {
           const itemInCart = cart[key];
           
           const isApplied = itemInCart && typeof isBulkDiscountApplicable === 'function' ? isBulkDiscountApplicable(itemInCart) : false;
+          const appliedSize = isApplied ? itemInCart.size : null;
 
           let actionButtonsHTML = itemInCart
               ? `<div class="qty-controls">
@@ -81,7 +82,7 @@ function renderProducts(filter = '', category = '') {
                       
                       ${priceHTML}
                       
-                      <div class="offer-below" id="offer-${productName}">${getBulkOfferMessage(p.name, isApplied)}</div>
+                      <div class="offer-below" id="offer-${productName}">${getBulkOfferMessage(p.name, isApplied, appliedSize)}</div>
                       
                       <div class="action-container" id="action-${productName}">${actionButtonsHTML}</div>
                       <div id="bulk-note-${productName}" class="bulk-discount-note-container"></div>

@@ -1,7 +1,7 @@
 //Bulk offer messages and rotator
 // offers.js
 
-function getBulkOfferMessage(productName, isApplied = false) {
+function getBulkOfferMessage(productName, isApplied = false, appliedSize = null) {
     let config = BULK_DISCOUNT_PRODUCTS[productName];
     if (!config && typeof normalizeProductName === 'function') {
       const safeName = normalizeProductName(productName);
@@ -10,16 +10,17 @@ function getBulkOfferMessage(productName, isApplied = false) {
     }
     if (!config) return '';
   
-    const sizes = config.eligibleSizes.join(' or ');
+    const sizesText = appliedSize ? appliedSize : config.eligibleSizes.join(' or ');
     
     if (isApplied) {
       return `
         <div class="bulk-offer-message applied" title="Offer Applied">
           <div style="font-weight: bold; color: #15803d; margin-bottom: 4px;">✨ Offer Applied!</div>
-          You unlocked <strong style="color: #166534;">${config.discountRate}% OFF</strong> by adding <strong>${config.threshold}</strong> (<em>${sizes}</em>).
+          You unlocked <strong style="color: #166534;">${config.discountRate}% OFF</strong> by adding <strong>${config.threshold}</strong> (<em>${sizesText}</em>).
         </div>`;
     }
 
+    const sizes = config.eligibleSizes.join(' or ');
     return `
       <div class="bulk-offer-message" onclick="scrollToProduct('${productName.replace(/'/g, "\\'")}', '${config.eligibleSizes[0].replace(/'/g, "\\'")}')" title="Click to view offer">
         <div style="font-weight: bold; color: #d97706; margin-bottom: 4px;">🎁 Special Offer</div>

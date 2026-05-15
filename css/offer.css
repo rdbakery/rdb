@@ -2,8 +2,8 @@
   font-size: 0.8rem;
   color: #78350f;
   background: linear-gradient(135deg, #fffbeb, #fef3c7);
-  padding: 10px 12px;
-  margin: 8px 0 12px 0;
+  padding: 8px 10px;
+  margin: 6px 0 10px 0;
   border: 1px solid #fde68a;
   border-left: 4px solid #f59e0b;
   border-radius: 8px;
@@ -92,5 +92,5 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin: 12px 1rem 0;
+  margin: 8px 0 0;
 }
