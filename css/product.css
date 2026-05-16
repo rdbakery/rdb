@@ -215,8 +215,8 @@
 }
 
 .product .qty-btn {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: white;
+  color: #ef476f;
   border: none;
   border-radius: 50%;
   width: 28px;
@@ -227,5 +227,5 @@
   margin: 0;
 }
 .product .qty-btn:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background: #f0ecec;
 }
