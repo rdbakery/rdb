@@ -134,7 +134,7 @@ const products = [
       { label: '4 pounds', price: 1200, discount:100 },
       { label: '5 pounds', price: 1500, discount:200 }
     ],
-    img: 'img/cake/C09.jpg',
+    img: ['img/cake/C09.jpg', 'img/cake/C09_1.jpg'],
     category: 'Cake'
   },
   {

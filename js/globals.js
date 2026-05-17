@@ -3,10 +3,10 @@
 // Global App Configuration
 const APP_CONFIG = {
   features: {
-    popupOnLoad: true,          // Show popup when the page loads or reloads
+    popupOnLoad: false,          // Show popup when the page loads or reloads
     celebrationEffects: true,    // Confetti/flower effects when adding items to the cart
     offersRotator: true,         // Display the rotating offers banner at the top
-    antiDevTools: true,         // Prevent right-click, F12, and opening DevTools
+    antiDevTools: false,         // Prevent right-click, F12, and opening DevTools
     showProductDescription: true // Show product description on product cards
   },
   contact: {
