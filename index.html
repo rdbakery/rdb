@@ -156,7 +156,12 @@
 
 
   <!-- JS Scripts -->
-  <script src="js/products.js"></script>
+  <script>
+    const productScriptUrl = navigator.onLine
+      ? `js/products.js?refresh=${Date.now()}`
+      : 'js/products.js';
+    document.write(`<script src="${productScriptUrl}"><\/script>`);
+  </script>
   <script src="js/globals.js"></script> <!-- Load first -->
   <script src="js/utils.js"></script>
   <script src="js/discounts.js"></script>
