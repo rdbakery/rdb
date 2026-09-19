@@ -31,9 +31,9 @@ const products = [
     name: '[C00] Matka Cake',
     desc: 'A deliciously moist and creamy matka cake, perfect for any celebration or sweet craving.',
     sizes: [
-      { label: '3 pound', price: 850 , discount:50 },
-      { label: '4 pounds', price: 1150, discount:100 },
-      { label: '5 pounds', price: 1400, discount:150 }
+      { label: '3 pound', price: 900 , discount:100 },
+      { label: '4 pounds', price: 1200, discount:150 },
+      { label: '5 pounds', price: 1500, discount:250 }
     ],
     img: ['img/cake/C00.jpg', 'img/cake/C00_1.jpg'],
     category: 'Cake'
@@ -42,9 +42,9 @@ const products = [
     name: '[C01] Doll Cake',
     desc: 'Make her birthday magical with this princess-style doll cake, perfect for celebrations!',
     sizes: [
-      { label: '4 pound', price: 1300 , discount:100 },
-      { label: '5 pounds', price: 1550, discount:100 },
-      { label: '6 pounds', price: 1800, discount:100 }
+      { label: '4 pound', price: 1400 , discount:200 },
+      { label: '5 pounds', price: 1750, discount:300 },
+      { label: '6 pounds', price: 2100, discount:400 }
     ],
     img: 'img/cake/C01.jpg',
     category: 'Cake'
@@ -54,8 +54,8 @@ const products = [
     desc: 'Delight little ones with this elegant doll cake—beautiful outside, delicious inside!',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C02.jpg',
     category: 'Cake'
@@ -65,8 +65,8 @@ const products = [
     desc: 'A stunning doll cake that’s as tasty as it is adorable—perfect for kids’ parties.',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C03.jpg',
     category: 'Cake'
@@ -76,8 +76,8 @@ const products = [
     desc: 'Surprise your little angel with a fairytale-inspired doll cake!',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C04.jpg',
     category: 'Cake'
@@ -87,8 +87,8 @@ const products = [
     desc: 'Sweeten birthdays with this charming and creamy doll-shaped cake.',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C05.jpg',
     category: 'Cake'
@@ -98,8 +98,8 @@ const products = [
     desc: 'Treat your princess to this beautifully decorated doll cake—crafted with love.',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C06.jpg',
     category: 'Cake'
@@ -109,8 +109,8 @@ const products = [
     desc: 'Customize your cake with a photo! Perfect for birthdays, anniversaries, and surprises.',
     sizes: [
       { label: '1 pound', price: 500, discount:50 },
-      { label: '2 pounds', price: 800, discount:50 },
-      { label: '3 pounds', price: 1100, discount:100 }
+      { label: '2 pounds', price: 1000, discount:250 },
+      { label: '3 pounds', price: 1500, discount:500 }
     ],
     img: 'img/cake/C07.jpg',
     category: 'Cake'
@@ -120,8 +120,8 @@ const products = [
     desc: 'Capture sweet memories on cake—add your favorite photo and let the flavors shine.',
     sizes: [
       { label: '1 pound', price: 500, discount:50 },
-      { label: '2 pounds', price: 800, discount:50 },
-      { label: '3 pounds', price: 1100, discount:100 }
+      { label: '2 pounds', price: 1000, discount:250 },
+      { label: '3 pounds', price: 1500, discount:500 }
     ],
     img: 'img/cake/C08.jpg',
     category: 'Cake'
@@ -142,8 +142,8 @@ const products = [
     desc: 'Classic butterscotch flavor layered with love—perfect for every sweet occasion.',
     sizes: [
       { label: '2 pound', price: 600, discount:50 },
-      { label: '3 pounds', price: 850, discount:50 },
-      { label: '5 pounds', price: 1300, discount:100 }
+      { label: '3 pounds', price: 900, discount:100 },
+      { label: '5 pounds', price: 1500, discount:300 }
     ],
     img: 'img/cake/C10.jpg',
     category: 'Cake'
@@ -153,8 +153,8 @@ const products = [
     desc: 'Celebrate with this adorable doll cake that’s sure to bring joy to any party!',
     sizes: [
       { label: '1 pound', price: 400, discount:50 },
-      { label: '2 pounds', price: 700, discount:50 },
-      { label: '3 pounds', price: 1000, discount:100 }
+      { label: '2 pounds', price: 800, discount:150 },
+      { label: '3 pounds', price: 1200, discount:300 }
     ],
     img: 'img/cake/C11.jpg',
     category: 'Cake'
@@ -163,8 +163,8 @@ const products = [
     name: '[C12] 2 Tier Cake',
     desc: 'Elegant and rich—this 2-tier cake is ideal for weddings, engagements, and big events.',
     sizes: [
-      { label: '3 pounds', price: 850, discount:50 },
-      { label: '5 pounds', price: 1450, discount:100 }
+      { label: '3 pounds', price: 900, discount:100 },
+      { label: '5 pounds', price: 1500, discount:150 }
     ],
     img: 'img/cake/C12.jpg',
     category: 'Cake'
@@ -173,8 +173,8 @@ const products = [
     name: '[C13] Two tier Cake',
     desc: 'Make every celebration grand with this two-tier cake loaded with flavor and beauty.',
     sizes: [
-      { label: '3 pounds', price: 800 , discount:50 },
-      { label: '5 pounds', price: 1400, discount:150 }
+      { label: '3 pounds', price: 900 , discount:150 },
+      { label: '5 pounds', price: 1500, discount:250 }
     ],
     img: 'img/cake/C13.jpg',
     category: 'Cake'
